@@ -66,6 +66,13 @@ header ul a:hover{
 .aqcia p:nth-child(3){
     font-size: 36px;
 }
+@keyframes wreBrunavs {
+    0%{top:0; left:0}
+    25%{top:0; left:388px}
+    50%{top:158px; left: 388px;}
+    75%{top: 158px; left: 0;}
+    100%{top:0; left:0}
+}
 .xe{
     width: 1058px;
     height: 500px;
