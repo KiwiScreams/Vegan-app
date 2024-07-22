@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Vegan | Shop</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="flex">
+                <li><a href="index.html">ვეგანური პროდუქცია</a></li>
+                <li><a href="store.html">მაღაზიები</a></li>
+                <li><a href="#" class="active">shop</a></li>
+                <li class="cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-value">0</span></li>
+                <li class="flex search-bar"><i class="fa-solid fa-magnifying-glass" id="glass"></i><input type="search"
+                        name="search" id="search">
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <div id="buttons" class="direction flex">
+            <button class="button-value active-a" onclick="filterProduct('bio')">
+                ბიო საკვები
+            </button>
+            <button class="button-value" onclick="filterProduct('detox')">
+                დეტოქსი
+            </button>
+            <button class="button-value" onclick="filterProduct('superfood')">
+                სუპერფუდი
+            </button>
+            <button class="button-value" onclick="filterProduct('vitamin')">
+                ვიტამინები
+            </button>
+            <button class="button-value" onclick="filterProduct('diabet')">
+                დიაბეტური <br>კეტო დიეტა
+            </button>
+            <button class="button-value" onclick="filterProduct('home')">
+                სახლის ჰიგიენა<br> სარეცხი სითხეები
+            </button>
+            <button class="button-value active-a" onclick="filterProduct('all')">
+                ყველა
+            </button>
+        </div>
+        <div id="products" class="flex listProduct">
+            <div class="cube"></div>
+        </div>
+        <div class="cart-tab">
+            <h1>YOUR CART</h1>
+            <div class="list-cart">
+                <div class="item">
+                    <div class="item-image">
+                        <img src="./img/prod.png" alt="item-image">
+                    </div>
+                    <div class="item-name">
+                        name
+                    </div>
+                    <div class="item-price">
+
+                    </div>
+                    <div class="quantity">
+                        <span class="minus">-</span>
+                        <span>1</span>
+                        <span class="plus">+</span>
+                    </div>
+                </div>
+            </div>
+            <div class="btns">
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+                <button class="checkout"><i class="fa-solid fa-square-check"></i></button>
+            </div>
+        </div>
+        <div class="store-content ou">
+            <h2>გვესტუმრეთ ფილიალში</h2>
+            <div class="box-container flex shop-content">
+                <div class="box">
+                    <img src="./img/biodegradable 1.svg" alt="biodegradable" class="shop white-on-hover">
+                    <p>ბიო საკვები</p>
+                </div>
+                <div class="box">
+                    <img src="./img/detox 1.svg" alt="detox" class="shop white-on-hover">
+                    <p>დეტოქსი</p>
+                </div>
+                <div class="box white-on-hover">
+                    <img src="./img/keto 1.svg" alt="keto" class="shop white-on-hover">
+                    <p>დიაბეტური კეტო დიეტა</p>
+                </div>
+                <div class="box white-on-hover">
+                    <img src="./img/shop (1) 1.svg" alt="shop" class="shop white-on-hover">
+                    <p>სახლის ჰიგიენა<br>სარეცხი სითხეები</p>
+                </div>
+                <div class="box white-on-hover">
+                    <img src="./img/salad 1.svg" alt="salad" class="shop white-on-hover">
+                    <p>სუპერფუდი</p>
+                </div>
+                <div class="box white-on-hover">
+                    <img src="./img/vitamin 1.svg" alt="vitamin" class="shop white-on-hover">
+                    <p>ვიტამინები</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/cart.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/products.js"></script>
+    <script src="https://kit.fontawesome.com/f3bc6e5cae.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

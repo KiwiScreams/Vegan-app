@@ -284,3 +284,248 @@ header ul a:hover
 {
     flex-direction: column;
 }
+.hide
+{
+    display: none;
+}
+.show
+{
+    display: block;
+}
+#buttons
+{
+    position: absolute;
+    top: 130px;
+    right: 20px;
+}
+#buttons button
+{
+    margin-bottom: 40px;
+    color: var(--black-clr);
+    font-size: var(--font-24px);
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    background-color: transparent;
+}
+#buttons button:hover
+{
+    background-color: var(--green-clr);
+    padding: 8px 16px;
+    border-radius: 0 35px;
+    color: var(--white-clr);
+}
+/* CARD ABOUT */
+.card
+{
+    position: relative;
+    background-color: transparent;
+    /* background-color: aqua; */
+    text-align: center;
+    padding: 28px;
+    transition: 0.3s;
+    margin-bottom: 60px;
+}
+.card:hover
+{
+    background-color: var(--grey-clr);
+    transition: 0.3s;
+}
+.card-image
+{
+    width: 230px;
+}
+.card .card-image img
+{
+    width: 100%;
+}
+.card .card-body .price
+{
+    color: var(--black-clr);
+    font-size: var(--font-20px);
+    margin-bottom: 10px;
+}
+.card .card-body .name
+{
+    color: var(--black-clr);
+    font-size: var(--font-18px);
+    margin-bottom: 18px;
+}
+.card .more
+{
+    width: 100%;
+    background-color: var(--grey-clr);
+    border-radius: 0 35px 0 35px;
+    font-size: var(--font-18px);
+    padding: 10px 36px;
+    transition: 0.3s;
+}
+.card:hover .more
+{
+    background-color: var(--green-clr);
+    transition: 0.3s;
+}
+.card .more:hover
+{
+    transition: 0.3s;
+    color: var(--white-clr);
+}
+.card .add-btn
+{
+    width: 50px;
+    height: 50px;
+    /* overflow: hidden; */
+    top: 10px;
+    position: absolute;
+    right: 10px;
+    z-index: 10;
+}
+.card .add-btn img
+{
+    width: 100%;
+}
+.listProduct
+{
+    width: 60%;
+    padding-right: 60px;
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 680px;
+    overflow: scroll;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+.cube
+{
+    width: 300px;
+    height: 400px;
+    background-color: transparent;
+}
+.Active
+{
+    background-color: #6759ff;
+    color: red;
+    border: none;
+}
+.display
+{
+    display: block;
+}
+.box:hover .white-on-hover
+{
+    filter: invert(100%);
+}
+/* DETAIL PAGE */
+.detail-container
+{
+    width: 80%;
+    margin: 0 auto;
+    background-color: red;
+    padding: 10px;
+}
+.detail-container .detail
+{
+    width: 50%;
+    margin: 0 auto;
+    background-color: aqua;
+    padding: 10px;
+}
+i
+{
+    font-size: 26px;
+    transition: 0.2s;
+    padding: 5px 5px;
+}
+i:hover
+{
+    color: var(--green-clr);
+    transition: 0.2s;
+    transform: scale(1.5);
+}
+input
+{
+    float: right;
+    background-color: transparent;
+    border: 5px solid var(--green-clr);
+    padding: 8px 10px;
+    border-radius: 25px;
+    border-top: none;
+    border-bottom: none;
+}
+.cart
+{
+    position: relative;
+}
+.cart-value
+{
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: var(--green-clr);
+    padding: 3px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    text-align: center;
+    bottom: -10px;
+    right: -10px;
+}
+/* CARTTAB */
+.cart-tab
+{
+    width: 600px;
+    background-color: var(--green-clr);
+    color: var(--white-clr);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    inset: 0 -700px 0 auto;
+    box-shadow: 0 0 100px 10px black;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    padding: 50px 50px;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: 0.5s;
+}
+.cart-tab .list-cart .item-image img
+{
+    width: 100%;
+}
+.cart-tab .list-cart .item
+{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+.list-cart .quantity
+{
+    border-radius: 25px;
+    border: 5px solid var(--white-clr);
+    padding: 10px;
+    background-color: transparent;
+}
+.list-cart .quantity span
+{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    color: var(--white-clr);
+    border-radius: 50%;
+}
+.list-cart
+{
+    overflow: auto;
+}
+body.showCart .cart-tab
+{
+    inset: 0 0 0 auto;
+}
+body.showCart .listProduct
+{
+    transform: translateX(-250px);
+    transition: transform 0.5s;
+}
