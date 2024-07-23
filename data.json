@@ -1,0 +1,66 @@
+[
+    {
+        "id": "1",
+        "productName": "ბიო ჩაის მარცვალი",
+        "image": "./img/prod.png",
+        "description": "Wendy's Burger",
+        "price": "39",
+        "category": "bio"
+    },
+    {
+        "id": "2",
+        "productName": " detox ბიო ჩაის მარცვალი",
+        "image": "./img/prod.png",
+        "description": "Wendy's Burger",
+        "price": "39",
+        "category": "detox"
+    },
+    {
+        "id": "3",
+        "productName": "ბიო ჩაის მარცვალი",
+        "image": "./img/prod.png",
+        "description": "Wendy's Burger",
+        "price": "15",
+        "category": "bio"
+    },
+    {
+        "id": "4",
+        "productName": "vitamin ბიო ჩაის მარცვალი",
+        "image": "./img/prod.png",
+        "description": "Wendy's Burger",
+        "price": "39",
+        "category": "vitamin"
+    },
+    {
+        "id": "5",
+        "productName": "superfood ბიო ჩაის მარცვალი",
+        "image": "./img/prod.png",
+        "description": "Wendy's Burger",
+        "price": "22",
+        "category": "superfood"
+    },
+    {
+        "id": "6",
+        "productName": "ბიო ჩაის მარცვალი",
+        "image": "./img/prod.png",
+        "description": "Wendy's Burger",
+        "price": "11",
+        "category": "bio"
+    },
+    {
+        "id": "7",
+        "productName": "home ბიო ჩაის მარცვალი",
+        "image": "./img/prod.png",
+        "description": "Wendy's Burger",
+        "price": "40",
+        "category": "home"
+    },
+    {
+        "id": "8",
+        "productName": "home ბიო ჩაის მარცვალი",
+        "image": "./img/prod.png",
+        "description": "Wendy's Burger",
+        "price": "39",
+        "category": "home"
+    }
+]
