@@ -16,17 +16,10 @@ header ul a
     background-color: var(--grey-clr);
     color: var(--black-clr);
     border-radius: 0 35px;
-    transition: var(--transition-3s);
 }
-header ul a.active, 
+header ul a.active,
 header ul a:hover
 {
     background-color: var(--green-clr);
     color: var(--white-clr);
-    transition: var(--transition-3s);
-}
-header ul a:hover
-{
-    box-shadow: 0 0 5px var(--black-clr);
-    transition: var(--transition-3s);
 }

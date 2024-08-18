@@ -1,0 +1,67 @@
+.sale-timer-section
+{
+  width: 100%;
+  margin-top: 110px;
+  padding-right: 210px;
+}
+.sale-container
+{
+  width: 420px;
+  height: 190px;
+  text-align: center;
+  padding-top: 36px;
+  position: relative;
+  float: right;
+}
+.circle
+{
+  width: 32px;
+  height: 32px;
+  background-color: var(--green-clr);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: moveCircle 5s infinite;
+}
+.sale-container:hover .circle
+{
+    animation-play-state: paused;
+}
+.sale-container p:nth-child(2)
+{
+  font-size: var(--font-18px);
+  margin-bottom: 20px;
+}
+.sale-container p:nth-child(3)
+{
+  font-size: var(--font-36px);
+}
+@keyframes moveCircle
+{
+  0%
+  {
+    top: 0;
+    left: 0;
+  }
+  25%
+  {
+    top: 0;
+    left: 388px;
+  }
+  50%
+  {
+    top: 158px;
+    left: 388px;
+  }
+  75%
+  {
+    top: 158px;
+    left: 0;
+  }
+  100%
+  {
+    top: 0;
+    left: 0;
+  }
+}
