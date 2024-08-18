@@ -2,11 +2,12 @@ import "./SaleTimer.css";
 import { useState, useEffect } from "react";
 const SaleTimer = () => {
   const [time, setTime] = useState({
-    days: 3,
-    hours: 21,
-    minutes: 34,
+    days: 0,
+    hours: 0,
+    minutes: 0,
     seconds: 1,
   });
+
   useEffect(() => {
     const timerId = setInterval(() => {
       setTime((prevTime) => {
@@ -23,6 +24,12 @@ const SaleTimer = () => {
         if (newTime.hours < 0) {
           newTime.hours = 23;
           newTime.days -= 1;
+        }
+        if (newTime.days < 0) {
+          newTime.days = 3;
+          newTime.hours = 21;
+          newTime.minutes = 34;
+          newTime.seconds = 1;
         }
         return newTime;
       });
