@@ -61,3 +61,7 @@ button, a
 {
   cursor: pointer;
 }
+.box:hover .white-on-hover
+{
+  filter: invert(100%);
+}
