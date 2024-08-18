@@ -72,7 +72,7 @@
 .store-box:hover .store {
   display: block;
   margin-top: -20px;
-  filter: 'invert(100%)';
+  filter: invert(100%);
   transition: var(--transition-3s);
 }
 .store-box:hover p {
