@@ -40,6 +40,35 @@
   background-color: var(--grey-clr);
   border-radius: 0 35px;
 }
+.branch:hover .leaf
+{
+    background-color: var(--green-clr);
+}
+.branch p
+{
+    width: 420px;
+    font-size: var(--font-18px);
+    position: relative;
+}
+.branch p::after
+{
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--green-clr);
+    transition: width 0.3s ease-in-out;
+}
+.branch:hover p::after
+{
+    width: 100%;
+}
+.branch:hover p
+{
+    color: var(--green-clr);
+}
 .branch p
 {
   width: 420px;
