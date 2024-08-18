@@ -1,0 +1,34 @@
+.sale-timer-section
+{
+    width: 100%;
+    margin-top: 110px;
+    padding-right: 210px;
+}
+.sale-container
+{
+    width: 420px;
+    height: 190px;
+    text-align: center;
+    padding-top: 36px;
+    position: relative;
+    float: right;
+}
+.circle
+{
+    width: 32px;
+    height: 32px;
+    background-color: var(--green-clr);
+    border-radius: 50%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.sale-container p:nth-child(2)
+{
+    font-size: var(--font-18px);
+    margin-bottom: 20px;
+}
+.sale-container p:nth-child(3)
+{
+    font-size: var(--font-36px);
+}

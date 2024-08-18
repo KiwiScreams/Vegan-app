@@ -5,6 +5,9 @@
   box-sizing: border-box;
   list-style-type: none;
   text-decoration: none;
+  border: none;
+  outline: none;
+  transition: var(--transition-3s);
 }
 .flex
 {
@@ -24,6 +27,7 @@
   --font-18px: 18px;
   --font-20px: 20px;
   --font-24px: 24px;
+  --font-36px: 36px;
   --font-38px: 38px;
   --transition-3s: 0.3s;
 }
