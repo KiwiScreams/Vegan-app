@@ -3,6 +3,9 @@
   width: 100%;
   margin-top: 110px;
   padding-right: 210px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 60px;
 }
 .sale-container
 {
@@ -11,7 +14,6 @@
   text-align: center;
   padding-top: 36px;
   position: relative;
-  float: right;
 }
 .circle
 {
@@ -27,6 +29,7 @@
 .sale-container:hover .circle
 {
     animation-play-state: paused;
+    transform: scale(1.2);
 }
 .sale-container p:nth-child(2)
 {

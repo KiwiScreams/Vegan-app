@@ -57,3 +57,7 @@ body
 {
   background-color: var(--grey-clr);
 }
+button, a
+{
+  cursor: pointer;
+}
