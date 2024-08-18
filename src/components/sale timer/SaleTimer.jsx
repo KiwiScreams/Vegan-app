@@ -51,7 +51,7 @@ const SaleTimer = () => {
       <section className="sale-timer-section">
         <div className="sale-container">
           <div className="circle"></div>
-          <p>აქციის დასრულებამდე დარჩდენილია</p>
+          <p>აქციის დასრულებამდე დარჩენილია</p>
           <p id="demo">{formatTime()}</p>
         </div>
       </section>
