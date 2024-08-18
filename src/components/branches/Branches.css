@@ -1,0 +1,63 @@
+.tree-section
+{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px;
+}
+.tree
+{
+  width: 1058px;
+  height: 500px;
+  position: relative;
+  padding-top: 70px;
+}
+.branch
+{
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.branch2
+{
+  left: 50%;
+  top: 112px;
+}
+.branch3
+{
+  top: 218px;
+}
+.branch4
+{
+  left: 50%;
+  top: 326px;
+}
+.leaf
+{
+  width: 70px;
+  height: 70px;
+  background-color: var(--grey-clr);
+  border-radius: 0 35px;
+}
+.branch p
+{
+  width: 420px;
+  font-size: var(--font-18px);
+}
+.branch p.rame
+{
+  width: 498px;
+  font-size: 17px;
+}
+.leaf.right
+{
+  transform: rotate(90deg);
+}
+.stem
+{
+  width: 2px;
+  height: 100%;
+  background-color: var(--grey-clr);
+  margin: 0 auto;
+}
