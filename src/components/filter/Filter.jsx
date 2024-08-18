@@ -1,38 +1,62 @@
 import "./Filter.css";
+import bio from "../../assets/img/biodegradable 1.svg";
+import detox from "../../assets/img/detox 1.svg";
+import keto from "../../assets/img/keto 1.svg";
+import shop from "../../assets/img/shop.svg";
+import salad from "../../assets/img/salad 1.svg";
+import vitamin from "../../assets/img/vitamin 1.svg";
 const Filter = () => {
-    return ( 
-        <>
-         <section class="filter-section ou">
-            <h2>გვესტუმრეთ ფილიალში</h2>
-            <div class="box-container flex shop-content">
-                <div class="box">
-                    <img src="./img/biodegradable 1.svg" alt="biodegradable" class="shop white-on-hover"/>
-                    <p>ბიო საკვები</p>
-                </div>
-                <div class="box">
-                    <img src="./img/detox 1.svg" alt="detox" class="shop white-on-hover"/>
-                    <p>დეტოქსი</p>
-                </div>
-                <div class="box white-on-hover">
-                    <img src="./img/keto 1.svg" alt="keto" class="shop white-on-hover"/>
-                    <p>დიაბეტური კეტო დიეტა</p>
-                </div>
-                <div class="box white-on-hover">
-                    <img src="./img/shop (1) 1.svg" alt="shop" class="shop white-on-hover"/>
-                    <p>სახლის ჰიგიენა<br/>სარეცხი სითხეები</p>
-                </div>
-                <div class="box white-on-hover">
-                    <img src="./img/salad 1.svg" alt="salad" class="shop white-on-hover"/>
-                    <p>სუპერფუდი</p>
-                </div>
-                <div class="box white-on-hover">
-                    <img src="./img/vitamin 1.svg" alt="vitamin" class="shop white-on-hover"/>
-                    <p>ვიტამინები</p>
-                </div>
+  const boxes = [
+    {
+      img: bio,
+      alt: "biodegradable",
+      text: "ბიო საკვები",
+    },
+    {
+      img: detox,
+      alt: "detox",
+      text: "დეტოქსი",
+    },
+    {
+      img: keto,
+      alt: "keto",
+      text: "დიაბეტური კეტო დიეტა",
+    },
+    {
+      img: shop,
+      alt: "shop",
+      text: "სახლის ჰიგიენა<br/>სარეცხი სითხეები",
+    },
+    {
+      img: salad,
+      alt: "salad",
+      text: "სუპერფუდი",
+    },
+    {
+      img: vitamin,
+      alt: "vitamin",
+      text: "ვიტამინები",
+    },
+  ];
+  return (
+    <>
+      <section className="filter-section ou">
+        <h2>გვესტუმრეთ ფილიალში</h2>
+        <div className="box-container flex shop-content">
+          {boxes.map((box, index) => (
+            <div key={index} className="box white-on-hover">
+              <img
+                src={box.img}
+                alt={box.alt}
+                className="shop white-on-hover"
+              />
+              <p>{box.text}</p>
             </div>
-        </section>
-        </>
-     );
-}
- 
+          ))}
+        </div>
+      </section>
+    </>
+  );
+};
+
 export default Filter;
