@@ -1,6 +1,7 @@
 import "./Stores.css";
 import storeImage from "../../assets/img/shop.svg";
 import locationImage from "../../assets/img/placeholder 1.svg";
+import online from "../../assets/img/laptop 1.png";
 const Stores = () => {
   const storesData = [
     {
@@ -30,8 +31,8 @@ const Stores = () => {
               <div key={index} className="store-box">
                 <img
                   src={storeImage}
-                  alt="shop"
-                  className="shop white-on-hover"
+                  alt="store"
+                  className="store white-on-hover"
                 />
                 <p>
                   {store.city}
@@ -42,6 +43,10 @@ const Stores = () => {
               </div>
             ))}
           </div>
+          <h2>ან შეიძინეთ პროდუქცია ონლაინ</h2>
+          <button>
+            <img src={online} alt="online" />
+          </button>
         </div>
       </section>
     </>
