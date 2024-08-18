@@ -2,7 +2,7 @@ import "./Filter.css";
 import bio from "../../assets/img/biodegradable 1.svg";
 import detox from "../../assets/img/detox 1.svg";
 import keto from "../../assets/img/keto 1.svg";
-import shop from "../../assets/img/shop.svg";
+import cereal from "../../assets/img/cereal 1.svg";
 import salad from "../../assets/img/salad 1.svg";
 import vitamin from "../../assets/img/vitamin 1.svg";
 const Filter = () => {
@@ -23,9 +23,9 @@ const Filter = () => {
       text: "დიაბეტური კეტო დიეტა",
     },
     {
-      img: shop,
+      img: cereal,
       alt: "shop",
-      text: "სახლის ჰიგიენა<br/>სარეცხი სითხეები",
+      text: "სახლის ჰიგიენა სარეცხი სითხეები",
     },
     {
       img: salad,
@@ -41,16 +41,15 @@ const Filter = () => {
   return (
     <>
       <section className="filter-section ou">
-        <h2>გვესტუმრეთ ფილიალში</h2>
         <div className="box-container flex shop-content">
           {boxes.map((box, index) => (
-            <div key={index} className="box white-on-hover">
+            <div key={index} className="box">
               <img
                 src={box.img}
                 alt={box.alt}
                 className="shop white-on-hover"
               />
-              <p>{box.text}</p>
+              <h2>{box.text}</h2>
             </div>
           ))}
         </div>
