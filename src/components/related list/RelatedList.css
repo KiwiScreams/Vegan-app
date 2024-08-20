@@ -19,3 +19,39 @@
 .related-container .product:hover {
   background-color: var(--grey-clr);
 }
+@media screen and (max-width: 1300px) {
+  .related-products-section {
+    justify-content: center;
+    margin-top: 50px;
+    margin: auto;
+    flex-direction: column-reverse;
+  }
+  .related-container {
+    overflow-x: hidden;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 720px) {
+  .related-products-section {
+    margin-top: 50px;
+    margin: auto;
+  }
+  .product {
+    padding: 28px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 14px;
+    background-color: transparent;
+    width: 70%;
+    margin: auto;
+  }
+  .product .product-image-container {
+    width: 100%;
+  }
+  .related-container {
+    height: 680px;
+    width: 98%;
+    padding-right: 0;
+  }
+}
