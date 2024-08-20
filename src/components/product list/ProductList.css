@@ -3,8 +3,10 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin-top: 120px;
+    height: 80vh;
+    overflow: hidden;
 }
 .multi-filter-section
 {
@@ -38,9 +40,16 @@
 .product-list-section
 .products-section
 {
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 680px;
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 60%;
+    padding-right: 60px;
+    margin: 0 auto;
 }
 .product-list-section .products-section .product
 {    
@@ -49,6 +58,17 @@
     position: relative;
     margin-bottom: 14px;
     background-color: transparent;
+    width: fit-content;
+}
+.product-list-section .products-section .product .plus
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.product-list-section .products-section .product:hover .plus
+{
+    display: none;
 }
 .product-list-section .products-section .product:hover
 {
@@ -79,4 +99,10 @@
     background-color: var(--grey-clr);
     padding: 10px 36px;
     color: var(--black-clr);
+}
+.hidden-cube
+{
+    width: 300px;
+    height: 400px;
+    background-color: transparent;
 }
