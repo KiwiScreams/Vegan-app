@@ -1,6 +1,6 @@
 import product from "../assets/img/prod.png";
 
-export const blogs = [
+export const products = [
   {
     id: 1,
     title: "product 1",
