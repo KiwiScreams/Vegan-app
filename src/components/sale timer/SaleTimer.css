@@ -78,7 +78,7 @@
     left: 0;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .sale-timer-section {
     display: flex;
     justify-content: center;
