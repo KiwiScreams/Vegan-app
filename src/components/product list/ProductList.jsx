@@ -60,7 +60,7 @@ const ProductList = () => {
     <>
       <section className="product-list-section">
         <section className="products-section">
-          <div class="hidden-cube"></div>
+          <div className="hidden-cube"></div>
           {filteredItems.length > 0 ? (
             filteredItems.map((item, idx) => (
               <div key={`blogs-${idx}`} className="product">
@@ -75,15 +75,15 @@ const ProductList = () => {
                     {item.discount ? (
                       <>
                         {getDiscountedPrice(item).toFixed(2)}
-                        <i class="fa-solid fa-lari-sign"></i>
+                        <i className="fa-solid fa-lari-sign"></i>
                         <span>
                           {item.discount}
-                          <i class="fa-solid fa-lari-sign"></i>
+                          <i className="fa-solid fa-lari-sign"></i>
                         </span>
                       </>
                     ) : (
                       <>
-                        {item.price} <i class="fa-solid fa-lari-sign"></i>
+                        {item.price} <i className="fa-solid fa-lari-sign"></i>
                       </>
                     )}
                   </p>

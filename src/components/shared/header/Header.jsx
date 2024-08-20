@@ -6,12 +6,18 @@ const Header = () => {
   const toggleHeader = () => {
     setHeaderVisible(!headerVisible);
   };
+  const [menuClass, setMenuClass] = useState("");
+  const handleMenuClick = () => {
+    setMenuClass(menuClass === "" ? "change" : "");
+  };
   return (
     <>
       <header>
-        <span className="menu" onClick={toggleHeader}>
-          lol
-        </span>
+        <div className={`menu ${menuClass}`} onClick={handleMenuClick}>
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+        </div>
         <nav
           className={`flex ${headerVisible ? "header-show" : "header-hide"}`}
         >
