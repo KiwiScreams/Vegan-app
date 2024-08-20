@@ -26,7 +26,7 @@ const Stores = () => {
       <section className="stores-section">
         <div className="store-content">
           <h2>გვესტუმრეთ ფილიალში</h2>
-          <div class="store-container flex">
+          <div className="store-container flex">
             {storesData.map((store, index) => (
               <div key={index} className="store-box">
                 <img
