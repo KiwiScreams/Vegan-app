@@ -2,6 +2,7 @@ import "./ProductDetail.css";
 import { useParams } from "react-router-dom";
 import { products } from "../../data/data";
 import { useState, useEffect } from "react";
+import RelatedList from "../related list/RelatedList";
 const ProductDetail = () => {
   const { id } = useParams();
   const productId = parseInt(id, 10);
@@ -18,6 +19,7 @@ const ProductDetail = () => {
           <p>{product.description}</p>
         </div>
       </section>
+      <RelatedList relatedList={relatedList}/>
     </>
   );
 };
