@@ -74,7 +74,7 @@ const ProductList = () => {
                   <p className="price">
                     {item.discount ? (
                       <>
-                        {getDiscountedPrice(item).toFixed(2)}{" "}
+                        {getDiscountedPrice(item).toFixed(2)}
                         <i className="fa-solid fa-lari-sign"></i>
                         <span>
                           {item.price.toFixed(2)}{" "}
@@ -83,7 +83,7 @@ const ProductList = () => {
                       </>
                     ) : (
                       <>
-                        {item.price.toFixed(2)}{" "}
+                        {item.price.toFixed(2)}
                         <i className="fa-solid fa-lari-sign"></i>
                       </>
                     )}

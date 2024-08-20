@@ -10,7 +10,26 @@ import ProductList from "./components/product list/ProductList";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 function App() {
+  const location = useLocation();
 
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/":
+        document.title = "Vegan | Home";
+        break;
+      case "/stores":
+        document.title = "Vegan | Stores";
+        break;
+      case "/shop":
+        document.title = "Vegan | Shop";
+        break;
+      case "/products":
+        document.title = "Vegan | Products";
+        break;
+      default:
+        document.title = "Vegan World";
+    }
+  }, [location]);
   return (
     <>
       <Header />
