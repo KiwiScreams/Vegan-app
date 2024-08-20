@@ -1,0 +1,30 @@
+.product-list-section
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: blue;
+}
+.multi-filter-section
+{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-right: 84px;
+    width: 300px;
+    align-items: center;
+}
+.multi-filter-section li
+{
+    color: var(--white-clr);
+    padding: 8px 18px;
+    border-radius: 0 35px 0 35px;
+    width: fit-content;
+    text-align: center;
+    font-size: var(--font-18px);
+    display: block;
+}
+.multi-filter-section li.active-filter,
+.multi-filter-section li:hover
+{
+    background-color: var(--green-clr);
+}
