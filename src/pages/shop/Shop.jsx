@@ -4,6 +4,7 @@ const Shop = () => {
   return (
     <>
       <Filter />
+      
     </>
   );
 };
