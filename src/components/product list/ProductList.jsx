@@ -50,9 +50,11 @@ const ProductList = () => {
       setFilteredItems(updatedProducts);
     }
   };
-  const getCategoryClassName = (category) => {
-    const filter = filters.find((filter) => filter.category === category);
-    return `category-${filters.indexOf(filter) + 1}`;
+  const getDiscountedPrice = (product) => {
+    if (product.discount) {
+      return product.price - product.price * (product.discount / 100);
+    }
+    return product.price;
   };
   return (
     <>
@@ -70,8 +72,20 @@ const ProductList = () => {
                 </div>
                 <div className="product-body">
                   <p className="price">
-                    {item.price}
-                    <i class="fa-solid fa-lari-sign"></i>
+                    {item.discount ? (
+                      <>
+                        {getDiscountedPrice(item).toFixed(2)}
+                        <i class="fa-solid fa-lari-sign"></i>
+                        <span>
+                          {item.discount}
+                          <i class="fa-solid fa-lari-sign"></i>
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        {item.price} <i class="fa-solid fa-lari-sign"></i>
+                      </>
+                    )}
                   </p>
                   <p className="title">{item.title}</p>
                   <Link to={`/product/${item.id}`} className="detail-btn">
