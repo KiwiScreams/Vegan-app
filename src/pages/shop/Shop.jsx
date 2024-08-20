@@ -51,7 +51,7 @@ const Filter = () => {
   };
   return (
     <>
-      <section className="shop-section ou">
+      <section className="shop-section">
         <div className="box-container flex shop-content">
           {boxes.map((box, index) => (
             <div
