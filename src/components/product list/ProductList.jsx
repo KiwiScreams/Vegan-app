@@ -55,17 +55,18 @@ const ProductList = () => {
   };
   return (
     <>
-      <section className="product-list-section flex">
-        <section>
+      <section className="product-list-section">
+        <section className="products-section">
           {filteredItems.length > 0 ? (
             filteredItems.map((item, idx) => (
-              <div key={`blogs-${idx}`}>
-                <div>
+              <div key={`blogs-${idx}`} className="product">
+                <div className="product-image-container">
                   <img src={item.image} alt="" />
                 </div>
-                <div>
-                  <p>{item.title}</p>
-                  <Link to={`/product/${item.id}`}>სრულად ნახვა</Link>
+                <div className="product-body">
+                  <p className="price">{item.price}<i class="fa-solid fa-lari-sign"></i></p>
+                  <p className="title">{item.title}</p>
+                  <Link to={`/product/${item.id}`} className="detail-btn">ვრცლად</Link>
                 </div>
               </div>
             ))
