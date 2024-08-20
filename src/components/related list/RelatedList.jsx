@@ -1,4 +1,5 @@
 import "./RelatedList.css";
+import plusIcon from "../../assets/img/add.svg";
 import { Link, NavLink } from "react-router-dom";
 const RelatedList = ({ relatedProducts }) => {
   const handleLinkClick = () => {
@@ -7,24 +8,49 @@ const RelatedList = ({ relatedProducts }) => {
   if (!relatedProducts.length) {
     return null;
   }
+  const getDiscountedPrice = (product) => {
+    if (product.discount) {
+      return product.price - product.price * (product.discount / 100);
+    }
+    return product.price;
+  };
   return (
     <>
-      <section>
+      <section className="related-products-section">
         <h2>მსგავსი</h2>
         <div>
           {relatedProducts.map((relatedProduct) => (
-            <div key={relatedProduct.id}>
-              <p>{relatedProduct.title}</p>
-              <div>
+            <div key={relatedProduct.id} className="product">
+              <div className="plus">
+                <img src={plusIcon} alt="" />
+              </div>
+              <div className="product-image-container">
                 <img src={relatedProduct.image} alt="" />
               </div>
-              <div className="text">
-                <p>{relatedProduct.category}</p>
+              <div className="product-body">
+                <p className="price">
+                  {relatedProduct.discount ? (
+                    <>
+                      {getDiscountedPrice(relatedProduct).toFixed(2)}
+                      <i className="fa-solid fa-lari-sign"></i>
+                      <span>
+                        {relatedProduct.discount}
+                        <i className="fa-solid fa-lari-sign"></i>
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      {relatedProduct.price}{" "}
+                      <i className="fa-solid fa-lari-sign"></i>
+                    </>
+                  )}
+                </p>
+                <p className="title">{relatedProduct.title}</p>
                 <Link
                   to={`/product/${relatedProduct.id}`}
-                  onClick={handleLinkClick}
+                  className="detail-btn"
                 >
-                  სრულად ნახვა
+                  ვრცლად
                 </Link>
               </div>
             </div>

@@ -1,5 +1,4 @@
-*
-{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,20 +8,18 @@
   outline: none;
   transition: var(--transition-3s);
 }
-.flex
-{
+.flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-:root
-{
-  --green-clr: #79B331;
+:root {
+  --green-clr: #79b331;
   --white-clr: #fff;
   --black-clr: #000;
-  --grey-clr: #C4C4C4;
+  --grey-clr: #c4c4c4;
   --dark-clr: #252525;
-  --light-clr: #D9D9D9;
+  --light-clr: #d9d9d9;
   --font-16px: 16px;
   --font-18px: 18px;
   --font-20px: 20px;
@@ -31,8 +28,7 @@
   --font-38px: 38px;
   --transition-3s: 0.3s;
 }
-body
-{
+body {
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
@@ -42,34 +38,28 @@ body
   background-attachment: fixed;
   background-position-y: -180px;
 }
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   display: block;
   width: 10px;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   border: none;
   outline: none;
   border-radius: 50px;
   background-color: var(--green-clr);
 }
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
   background-color: var(--grey-clr);
 }
-button, a
-{
+button,
+a {
   cursor: pointer;
 }
-.box:hover .white-on-hover
-{
+.box:hover .white-on-hover {
   filter: invert(100%);
 }
-@media screen and (max-width: 1000px)
-{
-  body
-  {
+@media screen and (max-width: 1000px) {
+  body {
     background-size: 100% 100%;
     background-position: -100px;
   }
