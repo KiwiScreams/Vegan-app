@@ -1,12 +1,22 @@
-.related-products-section
-{
-    width: 100vw;
-    height: 100vh;
-    background-color: goldenrod;
+.related-products-section {
+  width: 70vw;
+  margin: auto;
+  height: 100vh;
 }
-.related-products-section h2
-{
-    font-size: var(--font-38px);
-    margin-bottom: 40px;
-    text-align: center;
+.related-products-section h2 {
+  font-size: var(--font-38px);
+  margin-bottom: 40px;
+  margin-top: 40px;
+  text-align: center;
 }
+.related-products-section .related-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.related-container .product:hover {
+  background-color: var(--grey-clr);
+}
+

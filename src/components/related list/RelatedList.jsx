@@ -18,7 +18,7 @@ const RelatedList = ({ relatedProducts }) => {
     <>
       <section className="related-products-section">
         <h2>მსგავსი</h2>
-        <div>
+        <div className="related-container">
           {relatedProducts.map((relatedProduct) => (
             <div key={relatedProduct.id} className="product">
               <div className="plus">
@@ -40,7 +40,7 @@ const RelatedList = ({ relatedProducts }) => {
                     </>
                   ) : (
                     <>
-                      {relatedProduct.price}{" "}
+                      {relatedProduct.price}
                       <i className="fa-solid fa-lari-sign"></i>
                     </>
                   )}
