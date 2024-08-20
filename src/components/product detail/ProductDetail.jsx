@@ -23,11 +23,14 @@ const ProductDetail = () => {
           <div className="image-container">
             <img src={product.image} alt="" />
             <div className="discount-text">
-                <p>-{product.discount}%</p>
+              <p>-{product.discount}%</p>
             </div>
           </div>
           <div className="detail-info-container">
-            <h1>{product.title}</h1>
+            <h1>
+              <span className="first-letter">{product.title.charAt(0)}</span>
+              {product.title.slice(1)}
+            </h1>
             <p className="price">
               ფასი:
               <span>
