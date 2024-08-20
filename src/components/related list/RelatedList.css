@@ -1,0 +1,12 @@
+.related-products-section
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: goldenrod;
+}
+.related-products-section h2
+{
+    font-size: var(--font-38px);
+    margin-bottom: 40px;
+    text-align: center;
+}
