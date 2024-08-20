@@ -1,5 +1,5 @@
 .related-products-section {
-  width: 70vw;
+  width: 70%;
   margin: auto;
   height: 100vh;
 }
@@ -19,4 +19,3 @@
 .related-container .product:hover {
   background-color: var(--grey-clr);
 }
-
