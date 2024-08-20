@@ -1,7 +1,10 @@
 import "./RelatedList.css";
 import { Link, NavLink } from "react-router-dom";
 const RelatedList = ({ relatedProducts }) => {
-    
+  const handleLinkClick = (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <>
       <section>
@@ -14,7 +17,10 @@ const RelatedList = ({ relatedProducts }) => {
               </div>
               <div className="text">
                 <p>{relatedProduct.category}</p>
-                <Link to={`/product/${relatedProduct.id}`} onClick={handleLinkClick}>
+                <Link
+                  to={`/product/${relatedProduct.id}`}
+                  onClick={handleLinkClick}
+                >
                   სრულად ნახვა
                 </Link>
               </div>
