@@ -12,46 +12,53 @@ const Filter = () => {
       img: bio,
       alt: "biodegradable",
       text: "ბიო საკვები",
+      category: "Bio",
     },
     {
       img: detox,
       alt: "detox",
       text: "დეტოქსი",
+      category: "Detox",
     },
     {
       img: keto,
       alt: "keto",
       text: "დიაბეტური კეტო დიეტა",
+      category: "Diabet",
     },
     {
       img: cereal,
       alt: "shop",
       text: "სახლის ჰიგიენა სარეცხი სითხეები",
+      category: "Hygien",
     },
     {
       img: salad,
       alt: "salad",
       text: "სუპერფუდი",
+      category: "Superfood",
     },
     {
       img: vitamin,
       alt: "vitamin",
       text: "ვიტამინები",
+      category: "Vitamin",
     },
   ];
   const navigate = useNavigate();
-  const handleNavigateToProductList = () => {
-    navigate("/products");
+  const handleNavigateToProductList = (category) => {
+    navigate(`/products/${category}`);
   };
   return (
     <>
       <section className="shop-section ou">
-        <div
-          className="box-container flex shop-content"
-          onClick={handleNavigateToProductList}
-        >
+        <div className="box-container flex shop-content">
           {boxes.map((box, index) => (
-            <div key={index} className="box">
+            <div
+              key={index}
+              className="box"
+              onClick={() => handleNavigateToProductList(box.category)}
+            >
               <img
                 src={box.img}
                 alt={box.alt}
