@@ -13,7 +13,13 @@ const Header = () => {
   return (
     <>
       <header>
-        <div className={`menu ${menuClass}`} onClick={handleMenuClick}>
+        <div
+          className={`menu ${menuClass}`}
+          onClick={() => {
+            handleMenuClick();
+            toggleHeader();
+          }}
+        >
           <div className="bar1"></div>
           <div className="bar2"></div>
           <div className="bar3"></div>

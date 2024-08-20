@@ -23,11 +23,11 @@ header ul a:hover
     background-color: var(--green-clr);
     color: var(--white-clr);
 }
-.header-show
+nav.header-show
 {
   display: block;
 }
-.header-hide
+nav.header-hide
 {
   display: none;
 }
@@ -35,6 +35,7 @@ header ul a:hover
 {
   display: inline-block;
   cursor: pointer;
+  display: none;
 }
 .bar1, .bar2, .bar3
 {
@@ -55,4 +56,65 @@ header ul a:hover
 .change .bar3
 {
   transform: translate(0, -11px) rotate(0deg);
+}
+@media screen and (max-width: 1000px)
+{
+    .menu
+    {
+        display: none;
+    }
+    header
+    {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 50px;
+    }
+}
+@media screen and (max-width: 600px)
+{
+    .menu
+    {
+        display: inline;
+        float: right;
+    }
+    header
+    {
+        padding: 0;
+        padding-top: 20px;
+        display: block;
+        background-color: var(--white-clr);
+    }
+    header ul
+    {
+        display: block;
+        width: 100%;
+        display: flex;
+        position: absolute;
+        top: 80px;
+        overflow: 10;
+        z-index: 20;
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--white-clr);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.138);
+    }
+    header ul li
+    {
+        width: 100%;
+    }
+    header ul a
+    {
+        display: block;
+        width: 100%;
+        border-radius: 0;
+        background-color: var(--white-clr);
+        border-bottom: 1px solid var(--grey-clr);
+    }
+    header ul a.active,
+    header ul a:hover
+    {
+        border-radius: 0 35px 0 35px;
+    }
 }
