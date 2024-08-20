@@ -22,9 +22,11 @@ const ProductDetail = () => {
         <div className="detail-container">
           <div className="image-container">
             <img src={product.image} alt="" />
-            <div className="discount-text">
-              <p>-{product.discount}%</p>
-            </div>
+            {product.discount > 0 && (
+              <div className="discount-text">
+                <p>-{product.discount}%</p>
+              </div>
+            )}
           </div>
           <div className="detail-info-container">
             <h1>
@@ -34,13 +36,23 @@ const ProductDetail = () => {
             <p className="price">
               ფასი:
               <span>
-                {(
-                  product.price -
-                  (product.price * product.discount) / 100
-                ).toFixed(2)}
+                {product.discount > 0
+                  ? (
+                      product.price -
+                      (product.price * product.discount) / 100
+                    ).toFixed(2)
+                  : product.price.toFixed(2)}
                 <i className="fa-solid fa-lari-sign"></i>
               </span>
             </p>
+            {product.discount > 0 ? (
+              <p className="old-price">
+                ძველი ფასი: {product.price.toFixed(2)}
+                <i className="fa-solid fa-lari-sign"></i>
+              </p>
+            ) : (
+              <></>
+            )}
             <p className="description">{product.description}</p>
           </div>
         </div>
