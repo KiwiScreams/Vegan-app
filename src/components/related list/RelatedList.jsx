@@ -2,8 +2,7 @@ import "./RelatedList.css";
 import { Link, NavLink } from "react-router-dom";
 const RelatedList = ({ relatedProducts }) => {
   const handleLinkClick = (event) => {
-    event.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });    
   };
   return (
     <>
@@ -12,6 +11,7 @@ const RelatedList = ({ relatedProducts }) => {
         <div>
           {relatedProducts.map((relatedProduct) => (
             <div key={relatedProduct.id}>
+                <p>{relatedProduct.title}</p>
               <div>
                 <img src={relatedProduct.image} alt="" />
               </div>

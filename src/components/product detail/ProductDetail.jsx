@@ -10,8 +10,10 @@ const ProductDetail = () => {
 
   const relatedProducts = products
     .filter((relatedProduct) => {
-      if (relatedProducts.id === productId) return false;
-      return product.category.some((cat) => relatedProduct.category.includes(cat));
+      if (relatedProduct.id === productId) return false;
+      return product.category.some((cat) =>
+        relatedProduct.category.includes(cat)
+      );
     })
     .filter((relatedProduct) => relatedProduct.category.length > 0);
   return (
