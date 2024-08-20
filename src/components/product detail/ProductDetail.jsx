@@ -7,6 +7,13 @@ const ProductDetail = () => {
   const { id } = useParams();
   const productId = parseInt(id, 10);
   const product = products.find((product) => product.id === productId);
+
+  const relatedProducts = products
+    .filter((relatedProduct) => {
+      if (relatedProducts.id === productId) return false;
+      return product.category.some((cat) => relatedProduct.category.includes(cat));
+    })
+    .filter((relatedProduct) => relatedProduct.category.length > 0);
   return (
     <>
       <section>
@@ -19,7 +26,7 @@ const ProductDetail = () => {
           <p>{product.description}</p>
         </div>
       </section>
-      <RelatedList relatedList={relatedList}/>
+      <RelatedList relatedProducts={relatedProducts} />
     </>
   );
 };
