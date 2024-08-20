@@ -2,13 +2,11 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 const Header = () => {
-  const [headerVisible, setHeaderVisible] = useState(false);
-  const toggleHeader = () => {
-    setHeaderVisible(!headerVisible);
-  };
-  const [menuClass, setMenuClass] = useState("");
+  const [headerVisible, setHeaderVisible] = useState(true);
+  const [menuClass, setMenuClass] = useState("change");
   const handleMenuClick = () => {
-    setMenuClass(menuClass === "" ? "change" : "");
+    setMenuClass(menuClass === "change" ? "" : "change");
+    setHeaderVisible(!headerVisible);
   };
   return (
     <>
@@ -17,7 +15,6 @@ const Header = () => {
           className={`menu ${menuClass}`}
           onClick={() => {
             handleMenuClick();
-            toggleHeader();
           }}
         >
           <div className="bar1"></div>
