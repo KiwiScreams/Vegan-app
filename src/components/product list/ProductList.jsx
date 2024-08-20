@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { products } from "../../data/data";
+import plusIcon from "../../assets/img/add.svg";
 import { Link, NavLink } from "react-router-dom";
 import "./ProductList.css";
 const ProductList = () => {
@@ -57,16 +58,25 @@ const ProductList = () => {
     <>
       <section className="product-list-section">
         <section className="products-section">
+          <div class="hidden-cube"></div>
           {filteredItems.length > 0 ? (
             filteredItems.map((item, idx) => (
               <div key={`blogs-${idx}`} className="product">
+                <div className="plus">
+                  <img src={plusIcon} alt="" />
+                </div>
                 <div className="product-image-container">
                   <img src={item.image} alt="" />
                 </div>
                 <div className="product-body">
-                  <p className="price">{item.price}<i class="fa-solid fa-lari-sign"></i></p>
+                  <p className="price">
+                    {item.price}
+                    <i class="fa-solid fa-lari-sign"></i>
+                  </p>
                   <p className="title">{item.title}</p>
-                  <Link to={`/product/${item.id}`} className="detail-btn">ვრცლად</Link>
+                  <Link to={`/product/${item.id}`} className="detail-btn">
+                    ვრცლად
+                  </Link>
                 </div>
               </div>
             ))
