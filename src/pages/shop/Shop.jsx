@@ -40,14 +40,16 @@ const Filter = () => {
     },
   ];
   const navigate = useNavigate();
-  const handleNavigateToProductList = () =>
-  {
+  const handleNavigateToProductList = () => {
     navigate("/products");
-  }
+  };
   return (
     <>
-      <section className="filter-section ou">
-        <div className="box-container flex shop-content" onClick={handleNavigateToProductList}>
+      <section className="shop-section ou">
+        <div
+          className="box-container flex shop-content"
+          onClick={handleNavigateToProductList}
+        >
           {boxes.map((box, index) => (
             <div key={index} className="box">
               <img

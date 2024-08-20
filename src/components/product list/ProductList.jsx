@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { products } from "../../data/data";
 import { Link, NavLink } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import "./ProductList.css";
 const ProductList = () => {
   const updatedProducts = products.map((product) => ({
     ...product,
@@ -55,23 +55,7 @@ const ProductList = () => {
   };
   return (
     <>
-      <section>
-        <section>
-          {filters.map((filter, idx) => (
-            <button
-              onClick={() => handleFilterButtonClick(filter.category)}
-              className={`button ${
-                selectedFilters?.includes(filter.category)
-                  ? "active-filter"
-                  : ""
-              }`}
-              key={`filters-${idx}`}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </section>
-
+      <section className="product-list-section flex">
         <section>
           {filteredItems.length > 0 ? (
             filteredItems.map((item, idx) => (
@@ -89,6 +73,21 @@ const ProductList = () => {
             <p className="no-category">ასეთი პროდუქტი არ არსებობს</p>
           )}
         </section>
+        <ul className="multi-filter-section">
+          {filters.map((filter, idx) => (
+            <li
+              onClick={() => handleFilterButtonClick(filter.category)}
+              className={`button ${
+                selectedFilters?.includes(filter.category)
+                  ? "active-filter"
+                  : ""
+              }`}
+              key={`filters-${idx}`}
+            >
+              {filter.label}
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );
