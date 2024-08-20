@@ -9,18 +9,29 @@ const RelatedList = ({ relatedProducts }) => {
     return null;
   }
   const getDiscountedPrice = (product) => {
-    if (product.discount) {
+    if (
+      product.discount &&
+      typeof product.discount === "number" &&
+      product.price &&
+      typeof product.price === "number"
+    ) {
       return product.price - product.price * (product.discount / 100);
     }
-    return product.price;
+    return product.price || 0;
   };
   return (
     <>
       <section className="related-products-section">
-        <h2>მსგავსი</h2>
+        <h2>
+          <span className="first-letter">მ</span>სგავსი
+        </h2>
         <div className="related-container">
           {relatedProducts.map((relatedProduct) => (
-            <div key={relatedProduct.id} className="product">
+            <div
+              key={relatedProduct.id}
+              className="product"
+              onClick={handleLinkClick}
+            >
               <div className="plus">
                 <img src={plusIcon} alt="" />
               </div>
