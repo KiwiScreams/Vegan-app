@@ -18,14 +18,28 @@ const ProductDetail = () => {
     .filter((relatedProduct) => relatedProduct.category.length > 0);
   return (
     <>
-      <section>
-        <div>
-          <img src={product.image} alt="" />
-        </div>
-        <div>
-          <p>{product.title}</p>
-          <p>{product.price}</p>
-          <p>{product.description}</p>
+      <section className="product-detail-section">
+        <div className="detail-container">
+          <div className="image-container">
+            <img src={product.image} alt="" />
+            <div className="discount-text">
+                <p>-{product.discount}%</p>
+            </div>
+          </div>
+          <div className="detail-info-container">
+            <h1>{product.title}</h1>
+            <p className="price">
+              ფასი:
+              <span>
+                {(
+                  product.price -
+                  (product.price * product.discount) / 100
+                ).toFixed(2)}
+                <i className="fa-solid fa-lari-sign"></i>
+              </span>
+            </p>
+            <p className="description">{product.description}</p>
+          </div>
         </div>
       </section>
       <RelatedList relatedProducts={relatedProducts} />
