@@ -104,3 +104,35 @@
     margin-right: 0;
   }
 }
+@media screen and (max-width: 700px) {
+  .stem {
+    display: none;
+  }
+  .branch {
+    display: flex;
+    margin-bottom: 50px;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .branch2,
+  .branch4 {
+    flex-direction: column;
+  }
+  .leaf {
+    margin-bottom: 20px;
+  }
+  .branch2 {
+    top: 200px;
+  }
+  .branch3 {
+    top: 400px;
+  }
+  .branch4 {
+    top: 600px;
+  }
+  .branch p {
+    width: fit-content;
+    margin-bottom: 20px;
+    font-size: var(--font-18px);
+  }
+}
