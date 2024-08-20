@@ -1,10 +1,20 @@
 import "./Header.css";
 import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
 const Header = () => {
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const toggleHeader = () => {
+    setHeaderVisible(!headerVisible);
+  };
   return (
     <>
       <header>
-        <nav>
+        <span className="menu" onClick={toggleHeader}>
+          lol
+        </span>
+        <nav
+          className={`flex ${headerVisible ? "header-show" : "header-hide"}`}
+        >
           <ul className="flex">
             <li>
               <NavLink

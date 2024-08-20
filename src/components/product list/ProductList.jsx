@@ -2,10 +2,8 @@ import { useState, useEffect } from "react";
 import { products } from "../../data/data";
 import plusIcon from "../../assets/img/add.svg";
 import { Link, NavLink } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import "./ProductList.css";
 const ProductList = () => {
-  const { category } = useParams();
   const updatedProducts = products.map((product) => ({
     ...product,
     categories: Array.isArray(product.category)
