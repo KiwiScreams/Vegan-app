@@ -66,3 +66,11 @@ button, a
 {
   filter: invert(100%);
 }
+.header-show
+{
+  display: block;
+}
+.header-hide
+{
+  display: none;
+}
