@@ -5,7 +5,6 @@ const Shop = () => {
   return (
     <>
       <Filter />
-      <ProductList />
     </>
   );
 };

@@ -5,6 +5,7 @@ import keto from "../../assets/img/keto 1.svg";
 import cereal from "../../assets/img/cereal 1.svg";
 import salad from "../../assets/img/salad 1.svg";
 import vitamin from "../../assets/img/vitamin 1.svg";
+import { useNavigate } from "react-router-dom";
 const Filter = () => {
   const boxes = [
     {
@@ -38,10 +39,15 @@ const Filter = () => {
       text: "ვიტამინები",
     },
   ];
+  const navigate = useNavigate();
+  const handleNavigateToProductList = () =>
+  {
+    navigate("/products");
+  }
   return (
     <>
       <section className="filter-section ou">
-        <div className="box-container flex shop-content">
+        <div className="box-container flex shop-content" onClick={handleNavigateToProductList}>
           {boxes.map((box, index) => (
             <div key={index} className="box">
               <img

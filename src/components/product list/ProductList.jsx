@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { products } from "../../data/data";
 import { Link, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 const ProductList = () => {
   const updatedProducts = products.map((product) => ({
     ...product,
