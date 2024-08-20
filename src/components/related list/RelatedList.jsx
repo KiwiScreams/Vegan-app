@@ -1,19 +1,26 @@
 import "./RelatedList.css";
 import { Link, NavLink } from "react-router-dom";
-const RelatedList = ({ relatedList }) => {
+const RelatedList = ({ relatedProducts }) => {
+  const handleLinkClick = (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <>
       <section>
         <h2>მსგავსი</h2>
         <div>
-          {relatedBlogs.map((relatedBlog) => (
-            <div key={relatedBlog.id}>
+          {relatedProducts.map((relatedProduct) => (
+            <div key={relatedProduct.id}>
               <div>
-                <img src={relatedBlog.image} alt="" />
+                <img src={relatedProduct.image} alt="" />
               </div>
               <div className="text">
-                <p>{relatedBlog.category}</p>
-                <Link to={`/product/${relatedBlog.id}`} onClick={handleLinkClick}>
+                <p>{relatedProduct.category}</p>
+                <Link
+                  to={`/product/${relatedProduct.id}`}
+                  onClick={handleLinkClick}
+                >
                   სრულად ნახვა
                 </Link>
               </div>
