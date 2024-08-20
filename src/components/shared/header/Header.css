@@ -82,6 +82,7 @@ nav.header-hide
     header
     {
         padding: 0;
+        padding-right: 20px;
         padding-top: 20px;
         display: block;
         background-color: var(--white-clr);
