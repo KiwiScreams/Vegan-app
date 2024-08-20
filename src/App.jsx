@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/stores" element={<Stores />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
   );
