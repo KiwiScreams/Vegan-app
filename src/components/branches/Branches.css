@@ -1,92 +1,106 @@
-.tree-section
-{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 40px;
+.tree-section {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40px;
 }
-.tree
-{
+.tree {
   width: 1058px;
   height: 500px;
   position: relative;
   padding-top: 70px;
 }
-.branch
-{
+.branch {
   width: 50%;
   position: absolute;
   top: 0;
   left: 0;
 }
-.branch2
-{
+.branch2 {
   left: 50%;
   top: 112px;
 }
-.branch3
-{
+.branch3 {
   top: 218px;
 }
-.branch4
-{
+.branch4 {
   left: 50%;
   top: 326px;
 }
-.leaf
-{
+.leaf {
   width: 70px;
   height: 70px;
   background-color: var(--grey-clr);
   border-radius: 0 35px;
 }
-.branch:hover .leaf
-{
-    background-color: var(--green-clr);
+.branch:hover .leaf {
+  background-color: var(--green-clr);
 }
-.branch p
-{
-    width: 420px;
-    font-size: var(--font-18px);
-    position: relative;
+.branch p {
+  width: 420px;
+  font-size: var(--font-18px);
+  position: relative;
 }
-.branch p::after
-{
-    content: "";
-    position: absolute;
-    bottom: -14px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: var(--green-clr);
-    transition: width 0.3s ease-in-out;
+.branch p::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--green-clr);
+  transition: width 0.3s ease-in-out;
 }
-.branch:hover p::after
-{
-    width: 100%;
+.branch:hover p::after {
+  width: 100%;
 }
-.branch:hover p
-{
-    color: var(--green-clr);
+.branch:hover p {
+  color: var(--green-clr);
 }
-.branch p
-{
+.branch p {
   width: 420px;
   font-size: var(--font-18px);
 }
-.branch p.rame
-{
+.branch p.rame {
   width: 498px;
   font-size: 17px;
 }
-.leaf.right
-{
+.leaf.right {
   transform: rotate(90deg);
 }
-.stem
-{
+.stem {
   width: 2px;
   height: 100%;
   background-color: var(--grey-clr);
   margin: 0 auto;
+}
+@media screen and (max-width: 1200px) {
+  .branch2,
+  .branch4 {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .branch2 {
+    left: 0;
+    top: 112px;
+  }
+  .branch3 {
+    top: 218px;
+  }
+  .branch4 {
+    left: 0;
+    top: 326px;
+  }
+  .branch {
+    width: 100%;
+  }
+  .leaf.right {
+    transform: rotate(0deg);
+  }
+  .tree {
+    width: 600px;
+  }
+  .stem {
+    margin-right: 0;
+  }
 }
