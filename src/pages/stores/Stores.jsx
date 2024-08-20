@@ -43,7 +43,7 @@ const Stores = () => {
               </div>
             ))}
           </div>
-          <h2>ან შეიძინეთ პროდუქცია ონლაინ</h2>
+          <h2 className="center-h2">ან შეიძინეთ პროდუქცია ონლაინ</h2>
           <button>
             <img src={online} alt="online" />
           </button>
