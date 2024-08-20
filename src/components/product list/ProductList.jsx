@@ -80,7 +80,7 @@ const ProductList = () => {
                 </div>
                 <div>
                   <p>{item.title}</p>
-                  <Link to={`/blog/${item.id}`}>სრულად ნახვა</Link>
+                  <Link to={`/product/${item.id}`}>სრულად ნახვა</Link>
                 </div>
               </div>
             ))
