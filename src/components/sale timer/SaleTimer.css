@@ -1,5 +1,4 @@
-.sale-timer-section
-{
+.sale-timer-section {
   width: 100%;
   margin-top: 110px;
   padding-right: 210px;
@@ -7,16 +6,14 @@
   justify-content: flex-end;
   margin-bottom: 60px;
 }
-.sale-container
-{
+.sale-container {
   width: 420px;
   height: 190px;
   text-align: center;
   padding-top: 36px;
   position: relative;
 }
-.circle
-{
+.circle {
   width: 32px;
   height: 32px;
   background-color: var(--green-clr);
@@ -26,45 +23,80 @@
   left: 0;
   animation: moveCircle 5s infinite;
 }
-.sale-container:hover .circle
-{
-    animation-play-state: paused;
-    transform: scale(1.2);
+.sale-container:hover .circle {
+  animation-play-state: paused;
+  transform: scale(1.2);
 }
-.sale-container p:nth-child(2)
-{
+.sale-container p:nth-child(2) {
   font-size: var(--font-18px);
   margin-bottom: 20px;
 }
-.sale-container p:nth-child(3)
-{
+.sale-container p:nth-child(3) {
   font-size: var(--font-36px);
 }
-@keyframes moveCircle
-{
-  0%
-  {
+@keyframes moveCircle {
+  0% {
     top: 0;
     left: 0;
   }
-  25%
-  {
+  25% {
     top: 0;
     left: 388px;
   }
-  50%
-  {
+  50% {
     top: 158px;
     left: 388px;
   }
-  75%
-  {
+  75% {
     top: 158px;
     left: 0;
   }
-  100%
-  {
+  100% {
     top: 0;
     left: 0;
+  }
+}
+@keyframes moveCirclePhoneScreen {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: 350px;
+  }
+  50% {
+    top: 138px;
+    left: 350px;
+  }
+  75% {
+    top: 138px;
+    left: 0;
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .sale-timer-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 180px;
+  }
+  .sale-container {
+    margin: auto;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .circle {
+    width: 28px;
+    height: 28px;
+    animation: moveCirclePhoneScreen 5s infinite;
   }
 }
