@@ -74,16 +74,17 @@ const ProductList = () => {
                   <p className="price">
                     {item.discount ? (
                       <>
-                        {getDiscountedPrice(item).toFixed(2)}
+                        {getDiscountedPrice(item).toFixed(2)}{" "}
                         <i className="fa-solid fa-lari-sign"></i>
                         <span>
-                          {item.discount}
+                          {item.price.toFixed(2)}{" "}
                           <i className="fa-solid fa-lari-sign"></i>
                         </span>
                       </>
                     ) : (
                       <>
-                        {item.price} <i className="fa-solid fa-lari-sign"></i>
+                        {item.price.toFixed(2)}{" "}
+                        <i className="fa-solid fa-lari-sign"></i>
                       </>
                     )}
                   </p>
