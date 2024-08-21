@@ -4,7 +4,7 @@ import plusIcon from "../../assets/img/add.svg";
 import { Link, NavLink } from "react-router-dom";
 import "./ProductList.css";
 import Cart from "../cart/Cart";
-const ProductList = () => {
+const ProductList = ({ onAddToCart }) => {
   const updatedProducts = products.map((product) => ({
     ...product,
     categories: Array.isArray(product.category)
@@ -97,7 +97,10 @@ const ProductList = () => {
           {filteredItems.length > 0 ? (
             filteredItems.map((item, idx) => (
               <div key={`blogs-${idx}`} className="product">
-                <div className="plus" onClick={() => handleAddToCart(item)}>
+                <div
+                  className="plus"
+                  onClick={() => onAddToCart(item)}
+                >
                   <img src={plusIcon} alt="" />
                 </div>
                 <div className="product-image-container">
@@ -148,11 +151,11 @@ const ProductList = () => {
           ))}
         </ul>
       </section>
-      <Cart
+      {/* <Cart
         cartItems={cartItems}
         onQuantityChange={handleQuantityChange}
         onDelete={handleDelete}
-      />
+      /> */}
     </>
   );
 };

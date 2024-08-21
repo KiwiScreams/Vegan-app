@@ -9,9 +9,10 @@ import ProductDetail from "./components/product detail/ProductDetail";
 import ProductList from "./components/product list/ProductList";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import Cart from "./components/cart/Cart";
 function App() {
   const location = useLocation();
-
+  const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     switch (location.pathname) {
       case "/":
@@ -30,15 +31,48 @@ function App() {
         document.title = "Vegan World";
     }
   }, [location]);
+  const handleAddToCart = (item) => {
+    const existingItem = cartItems.find((i) => i.id === item.id);
+    if (existingItem) {
+      setCartItems((prevItems) => prevItems.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i)));
+    } else {
+      setCartItems((prevItems) => [...prevItems, { ...item, quantity: 1 }]);
+    }
+  };
+  
+  const handleRemoveFromCart = (item) => {
+    const existingItem = cartItems.find((i) => i.id === item.id);
+    if (existingItem.quantity > 1) {
+      setCartItems((prevItems) => prevItems.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity - 1 } : i)));
+    } else {
+      setCartItems((prevItems) => prevItems.filter((i) => i.id !== item.id));
+    }
+  };
+
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
   return (
     <>
       <Header />
+      <Cart
+        cartItems={cartItems}
+        totalPrice={totalPrice}
+        onRemoveFromCart={handleRemoveFromCart}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/stores" element={<Stores />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route
+          path="/products"
+          element={<ProductList onAddToCart={handleAddToCart} />}
+        />
+        <Route
+          path="/product/:id"
+          element={<ProductDetail onAddToCart={handleAddToCart} />}
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
