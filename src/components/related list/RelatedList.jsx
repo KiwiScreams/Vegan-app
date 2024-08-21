@@ -27,14 +27,7 @@ const RelatedList = ({ relatedProducts }) => {
         </h2>
         <div className="related-container">
           {relatedProducts.map((relatedProduct) => (
-            <div
-              key={relatedProduct.id}
-              className="product"
-              onClick={handleLinkClick}
-            >
-              <div className="plus">
-                <img src={plusIcon} alt="" />
-              </div>
+            <div key={relatedProduct.id} className="product">
               <div className="product-image-container">
                 <img src={relatedProduct.image} alt="" />
               </div>
@@ -59,6 +52,7 @@ const RelatedList = ({ relatedProducts }) => {
                 <p className="title">{relatedProduct.title}</p>
                 <Link
                   to={`/product/${relatedProduct.id}`}
+                  onClick={handleLinkClick}
                   className="detail-btn"
                 >
                   ვრცლად
