@@ -6,7 +6,6 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
   const [isCartVisible, setIsCartVisible] = useState(false);
   const handleToggleCart = () => {
     setIsCartVisible(!isCartVisible);
-
   };
   const getDiscountedPrice = (item) => {
     return item.discount
@@ -40,9 +39,7 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
                       +
                     </button>
                     <span id="quantity">
-                      <span>
-                        {(getDiscountedPrice(item) * item.quantity).toFixed(2)}₾
-                      </span>
+                      <span>{item.quantity}</span>
                     </span>
                     <button
                       className="minus-btn"
@@ -64,18 +61,14 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
                   >
                     <i className="fa-solid fa-delete-left"></i>
                   </button>
-                  {cartItems.length > 0 && (
-                    <p className="total-price">
-                      Total: {totalPrice.toFixed(2)} ₾
-                    </p>
-                  )}
+                  <span className="total-item-price">
+                    {(getDiscountedPrice(item) * item.quantity).toFixed(2)} ₾
+                  </span>
                 </li>
               ))}
             </ul>
           )}
-          {cartItems.length > 0 && (
-            <p className="total-price">Total: {totalPrice.toFixed(2)} ₾</p>
-          )}
+          <p className="total-price">Total: {totalPrice.toFixed(2)} ₾</p>
         </section>
       )}
       <button onClick={handleToggleCart} className="cart">
