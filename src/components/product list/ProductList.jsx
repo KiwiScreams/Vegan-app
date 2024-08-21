@@ -75,6 +75,9 @@ const ProductList = () => {
     }
   };
   const handleQuantityChange = (idx, newQuantity) => {
+    if (newQuantity < 1) {
+      return;
+    }
     setCartItems((prevCartItems) =>
       prevCartItems.map((item, index) =>
         index === idx ? { ...item, quantity: newQuantity } : item

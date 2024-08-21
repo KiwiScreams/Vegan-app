@@ -25,14 +25,18 @@ const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
               </button>
               <button
                 className="minus-btn"
-                onClick={() => onQuantityChange(idx, item.quantity - 1)}
+                onClick={() => {
+                  const newQuantity = item.quantity - 1;
+                  if (newQuantity < 1) {
+                    onDelete(idx);
+                  } else {
+                    onQuantityChange(idx, newQuantity);
+                  }
+                }}
               >
                 -
               </button>
-              <button
-                className="delete-btn"
-                onClick={() => onDelete(idx)}
-              >
+              <button className="delete-btn" onClick={() => onDelete(idx)}>
                 Delete
               </button>
             </span>
