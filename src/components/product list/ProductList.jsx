@@ -75,10 +75,18 @@ const ProductList = () => {
     }
   };
   const handleQuantityChange = (idx, newQuantity) => {
+    if (newQuantity < 1) {
+      return;
+    }
     setCartItems((prevCartItems) =>
       prevCartItems.map((item, index) =>
         index === idx ? { ...item, quantity: newQuantity } : item
       )
+    );
+  };
+  const handleDelete = (idx) => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.filter((item, index) => index !== idx)
     );
   };
   return (
@@ -140,7 +148,11 @@ const ProductList = () => {
           ))}
         </ul>
       </section>
-      <Cart cartItems={cartItems} onQuantityChange={handleQuantityChange} />
+      <Cart
+        cartItems={cartItems}
+        onQuantityChange={handleQuantityChange}
+        onDelete={handleDelete}
+      />
     </>
   );
 };
