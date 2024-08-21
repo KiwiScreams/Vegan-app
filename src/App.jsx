@@ -48,10 +48,15 @@ function App() {
     setCartItems((prevItems) => prevItems.filter((i) => i.id !== item.id));
   };
 
-  const totalPrice = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  const getDiscountedPrice = (item) => {
+    return item.discount
+      ? item.price - (item.price * item.discount) / 100
+      : item.price;
+  };
+
+  const totalPrice = cartItems.reduce((acc, item) => {
+    return acc + getDiscountedPrice(item) * item.quantity;
+  }, 0);
   const handleQuantityChange = (idx, newQuantity) => {
     setCartItems(
       cartItems.map((item, index) => {
@@ -69,6 +74,7 @@ function App() {
         cartItems={cartItems}
         onQuantityChange={handleQuantityChange}
         onRemoveItem={handleRemoveItem}
+        totalPrice={totalPrice}
       />
       <Routes>
         <Route path="/" element={<Home />} />
