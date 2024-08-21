@@ -58,7 +58,28 @@ const ProductList = () => {
     return product.price;
   };
   const handleAddToCart = (product) => {
-    setCartItems([...cartItems, product]);
+    const existingItem = cartItems.find((item) => item.id === product.id);
+    if (existingItem) {
+      setCartItems((prevCartItems) =>
+        prevCartItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCartItems((prevCartItems) => [
+        ...prevCartItems,
+        { ...product, quantity: 1 },
+      ]);
+    }
+  };
+  const handleQuantityChange = (idx, newQuantity) => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.map((item, index) =>
+        index === idx ? { ...item, quantity: newQuantity } : item
+      )
+    );
   };
   return (
     <>
@@ -119,7 +140,7 @@ const ProductList = () => {
           ))}
         </ul>
       </section>
-      <Cart cartItems={cartItems}/>
+      <Cart cartItems={cartItems} onQuantityChange={handleQuantityChange} />
     </>
   );
 };
