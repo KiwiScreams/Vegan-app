@@ -6,6 +6,7 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
   const [isCartVisible, setIsCartVisible] = useState(false);
   const handleToggleCart = () => {
     setIsCartVisible(!isCartVisible);
+
   };
   const getDiscountedPrice = (item) => {
     return item.discount
@@ -15,7 +16,9 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
   return (
     <div>
       {isCartVisible && (
-        <section className="cart-section">
+        <section
+          className={`cart-section ${isCartVisible ? "visible" : "hidden"}`}
+        >
           <h2>Vegan | კალათა</h2>
           {cartItems.length === 0 ? (
             <p className="empty-cart">
