@@ -13,7 +13,6 @@ const ProductList = ({ onAddToCart }) => {
   }));
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(updatedProducts);
-  const [cartItems, setCartItems] = useState([]);
   let filters = [
     { category: "Bio", label: "ბიო საკვები" },
     { category: "Detox", label: "დეტოქსი" },
@@ -57,38 +56,6 @@ const ProductList = ({ onAddToCart }) => {
     }
     return product.price;
   };
-  const handleAddToCart = (product) => {
-    const existingItem = cartItems.find((item) => item.id === product.id);
-    if (existingItem) {
-      setCartItems((prevCartItems) =>
-        prevCartItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-      setCartItems((prevCartItems) => [
-        ...prevCartItems,
-        { ...product, quantity: 1 },
-      ]);
-    }
-  };
-  const handleQuantityChange = (idx, newQuantity) => {
-    if (newQuantity < 1) {
-      return;
-    }
-    setCartItems((prevCartItems) =>
-      prevCartItems.map((item, index) =>
-        index === idx ? { ...item, quantity: newQuantity } : item
-      )
-    );
-  };
-  const handleDelete = (idx) => {
-    setCartItems((prevCartItems) =>
-      prevCartItems.filter((item, index) => index !== idx)
-    );
-  };
   return (
     <>
       <section className="product-list-section">
@@ -97,10 +64,7 @@ const ProductList = ({ onAddToCart }) => {
           {filteredItems.length > 0 ? (
             filteredItems.map((item, idx) => (
               <div key={`blogs-${idx}`} className="product">
-                <div
-                  className="plus"
-                  onClick={() => onAddToCart(item)}
-                >
+                <div className="plus" onClick={() => onAddToCart(item)}>
                   <img src={plusIcon} alt="" />
                 </div>
                 <div className="product-image-container">
@@ -151,11 +115,6 @@ const ProductList = ({ onAddToCart }) => {
           ))}
         </ul>
       </section>
-      {/* <Cart
-        cartItems={cartItems}
-        onQuantityChange={handleQuantityChange}
-        onDelete={handleDelete}
-      /> */}
     </>
   );
 };
