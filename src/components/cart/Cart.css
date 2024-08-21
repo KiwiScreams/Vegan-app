@@ -103,6 +103,7 @@ button.cart
     right: 0;
     z-index: 22;
     font-size: 30px;
+    outline: 3px solid var(--white-clr);
 }
 button.cart:hover
 {
@@ -110,4 +111,9 @@ button.cart:hover
     border: 3px solid var(--green-clr);
     color: var(--green-clr);
     background-color: var(--white-clr);
+}
+.empty-cart
+{
+    text-align: center;
+    font-size: 32px;
 }

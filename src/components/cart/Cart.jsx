@@ -16,44 +16,52 @@ const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
     <div>
       {isCartVisible && (
         <section className="cart-section">
-          <h2>Vegan | Cart</h2>
-          <ul>
-            {cartItems.map((item, idx) => (
-              <li key={idx} className="flex">
-                <div className="cart-image">
-                  <img src={item.image} alt="" />
-                </div>
-                <span className="title">{item.title}</span>
-                <div className="buttons">
-                  <button
-                    className="plus-btn"
-                    onClick={() => onQuantityChange(idx, item.quantity + 1)}
-                  >
-                    +
+          <h2>Vegan | კალათა</h2>
+          {cartItems.length === 0 ? (
+            <p className="empty-cart">
+              კალათა ცარიელია <i class="fa-solid fa-cart-shopping"></i>
+            </p>
+          ) : (
+            <ul>
+              {cartItems.map((item, idx) => (
+                <li key={idx} className="flex">
+                  <div className="cart-image">
+                    <img src={item.image} alt="" />
+                  </div>
+                  <span className="title">{item.title}</span>
+                  <div className="buttons">
+                    <button
+                      className="plus-btn"
+                      onClick={() => onQuantityChange(idx, item.quantity + 1)}
+                    >
+                      +
+                    </button>
+                    <span id="quantity">{item.quantity}</span>
+                    <button
+                      className="minus-btn"
+                      onClick={() => {
+                        const newQuantity = item.quantity - 1;
+                        if (newQuantity < 1) {
+                          onDelete(idx);
+                        } else {
+                          onQuantityChange(idx, newQuantity);
+                        }
+                      }}
+                    >
+                      -
+                    </button>
+                  </div>
+                  <button className="delete-btn" onClick={() => onDelete(idx)}>
+                    <i class="fa-solid fa-delete-left"></i>
                   </button>
-                  <span id="quantity">{item.quantity}</span>
-                  <button
-                    className="minus-btn"
-                    onClick={() => {
-                      const newQuantity = item.quantity - 1;
-                      if (newQuantity < 1) {
-                        onDelete(idx);
-                      } else {
-                        onQuantityChange(idx, newQuantity);
-                      }
-                    }}
-                  >
-                    -
-                  </button>
-                </div>
-                <button className="delete-btn" onClick={() => onDelete(idx)}>
-                  <i class="fa-solid fa-delete-left"></i>
-                </button>
-                <span>{(item.price * item.quantity).toFixed(2)} ₾</span>
-              </li>
-            ))}
-          </ul>
-          <p className="total-price">Total: {totalPrice.toFixed(2)} ₾</p>
+                  <span>{(item.price * item.quantity).toFixed(2)} ₾</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {cartItems.length > 0 && (
+            <p className="total-price">Total: {totalPrice.toFixed(2)} ₾</p>
+          )}
         </section>
       )}
       <button onClick={handleToggleCart} className="cart">
