@@ -46,7 +46,7 @@ const Filter = () => {
     },
   ];
   const navigate = useNavigate();
-  const handleNavigateToProductList = (category) => {
+  const handleNavigateToProductList = () => {
     navigate(`/products`);
   };
   return (

@@ -57,7 +57,7 @@
   right: 0px;
 }
 .product:hover .plus {
-  display: none;
+  /* display: none; */
 }
 .product:hover {
   background-color: var(--grey-clr);

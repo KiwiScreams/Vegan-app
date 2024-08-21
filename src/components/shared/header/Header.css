@@ -13,10 +13,20 @@ header ul a {
   background-color: var(--grey-clr);
   color: var(--black-clr);
   border-radius: 0 35px;
+  border: 1px solid var(--grey-clr);
 }
-header ul a.active,
-header ul a:hover {
+header ul a.active {
   background-color: var(--green-clr);
+  border: 1px solid var(--green-clr);
+  color: var(--white-clr);
+}
+header ul a:hover {
+  background-color: transparent;
+  border: 1px solid var(--green-clr);
+}
+header ul a.active:hover {
+  background-color: var(--green-clr);
+  border: 1px solid var(--green-clr);
   color: var(--white-clr);
 }
 nav.header-show {

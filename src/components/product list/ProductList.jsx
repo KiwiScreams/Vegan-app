@@ -3,6 +3,7 @@ import { products } from "../../data/data";
 import plusIcon from "../../assets/img/add.svg";
 import { Link, NavLink } from "react-router-dom";
 import "./ProductList.css";
+import Cart from "../cart/Cart";
 const ProductList = () => {
   const updatedProducts = products.map((product) => ({
     ...product,
@@ -12,7 +13,7 @@ const ProductList = () => {
   }));
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(updatedProducts);
-
+  const [cartItems, setCartItems] = useState([]);
   let filters = [
     { category: "Bio", label: "ბიო საკვები" },
     { category: "Detox", label: "დეტოქსი" },
@@ -56,6 +57,9 @@ const ProductList = () => {
     }
     return product.price;
   };
+  const handleAddToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
   return (
     <>
       <section className="product-list-section">
@@ -64,7 +68,7 @@ const ProductList = () => {
           {filteredItems.length > 0 ? (
             filteredItems.map((item, idx) => (
               <div key={`blogs-${idx}`} className="product">
-                <div className="plus">
+                <div className="plus" onClick={() => handleAddToCart(item)}>
                   <img src={plusIcon} alt="" />
                 </div>
                 <div className="product-image-container">
@@ -77,7 +81,7 @@ const ProductList = () => {
                         {getDiscountedPrice(item).toFixed(2)}
                         <i className="fa-solid fa-lari-sign"></i>
                         <span>
-                          {item.price.toFixed(2)}{" "}
+                          {item.price.toFixed(2)}
                           <i className="fa-solid fa-lari-sign"></i>
                         </span>
                       </>
@@ -115,6 +119,7 @@ const ProductList = () => {
           ))}
         </ul>
       </section>
+      <Cart cartItems={cartItems}/>
     </>
   );
 };
