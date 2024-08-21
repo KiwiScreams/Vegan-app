@@ -70,7 +70,6 @@
 .cart-section button.minus-btn:hover,
 .cart-section .delete-btn:hover
 {
-    opacity: 0.8;
     color: var(--green-clr);
     background-color: var(--white-clr);
 }
@@ -92,10 +91,23 @@
     background-color: var(--green-clr);
     right: 20px;
 }
-.cart-section .toggle-cart-btn
+button.cart
 {
+    background-color: var(--green-clr);
+    color: var(--white-clr);
+    padding: 10px 20px;
+    border: 3px solid var(--green-clr);
+    border-radius: 0 0 0 50%;
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 21;
+    z-index: 22;
+    font-size: 30px;
+}
+button.cart:hover
+{
+    transform: scale(1.2);
+    border: 3px solid var(--green-clr);
+    color: var(--green-clr);
+    background-color: var(--white-clr);
 }

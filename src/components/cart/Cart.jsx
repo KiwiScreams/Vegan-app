@@ -7,7 +7,7 @@ const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
-  const [isCartVisible, setIsCartVisible] = useState(true);
+  const [isCartVisible, setIsCartVisible] = useState(false);
   const handleToggleCart = () => {
     setIsCartVisible(!isCartVisible);
   };
@@ -56,18 +56,8 @@ const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
           <p className="total-price">Total: {totalPrice.toFixed(2)} ₾</p>
         </section>
       )}
-      <button
-        style={{
-          backgroundColor: "#4CAF50",
-          color: "#ffffff",
-          padding: "10px 20px",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-        onClick={handleToggleCart}
-      >
-        {isCartVisible ? "Hide Cart" : "Show Cart"}
+      <button onClick={handleToggleCart} className="cart">
+        <i class="fa-solid fa-cart-shopping"></i>
       </button>
     </div>
   );
