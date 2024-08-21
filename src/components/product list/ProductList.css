@@ -34,9 +34,10 @@
 .product-list-section .products-section {
   flex-wrap: wrap;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: center; */
   align-items: center;
   height: 680px;
+  gap: 60px;
   overflow: scroll;
   overflow-x: hidden;
   width: 60%;
