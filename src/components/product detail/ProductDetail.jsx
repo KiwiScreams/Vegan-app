@@ -88,8 +88,8 @@ const ProductDetail = () => {
               <></>
             )}
             <p className="description">{product.description}</p>
+            <button onClick={() => handleAddToCart(product)} className="add-to-cart">კალათაში დამატება</button>
           </div>
-          <button onClick={() => handleAddToCart(product)}>Add</button>
         </div>
       </section>
       <RelatedList relatedProducts={relatedProducts} />
