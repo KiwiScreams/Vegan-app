@@ -2,15 +2,16 @@ import React from "react";
 import "./Cart.css";
 import { useState, useEffect } from "react";
 
-const Cart = ({ cartItems, onQuantityChange, onRemoveItem }) => {
-  const totalPrice =
-    cartItems?.reduce((acc, item) => acc + item.price * item.quantity, 0) ?? 0;
-
+const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
   const [isCartVisible, setIsCartVisible] = useState(false);
   const handleToggleCart = () => {
     setIsCartVisible(!isCartVisible);
   };
-
+  const getDiscountedPrice = (item) => {
+    return item.discount
+      ? item.price - (item.price * item.discount) / 100
+      : item.price;
+  };
   return (
     <div>
       {isCartVisible && (
@@ -35,7 +36,11 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem }) => {
                     >
                       +
                     </button>
-                    <span id="quantity">{item.quantity}</span>
+                    <span id="quantity">
+                      <span>
+                        {(getDiscountedPrice(item) * item.quantity).toFixed(2)}₾
+                      </span>
+                    </span>
                     <button
                       className="minus-btn"
                       onClick={() => {
@@ -56,7 +61,11 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem }) => {
                   >
                     <i className="fa-solid fa-delete-left"></i>
                   </button>
-                  <span>{(item.price * item.quantity).toFixed(2)} ₾</span>
+                  {cartItems.length > 0 && (
+                    <p className="total-price">
+                      Total: {totalPrice.toFixed(2)} ₾
+                    </p>
+                  )}
                 </li>
               ))}
             </ul>
