@@ -41,7 +41,7 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem }) => {
                       onClick={() => {
                         const newQuantity = item.quantity - 1;
                         if (newQuantity < 1) {
-                          handleRemoveItem(item);
+                          onRemoveItem(item);
                         } else {
                           onQuantityChange(idx, newQuantity);
                         }
