@@ -1,6 +1,11 @@
 import React from "react";
 
 const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
+  const totalPrice = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
   return (
     <div className="cart">
       <h2>Cart</h2>
@@ -44,6 +49,7 @@ const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
           </li>
         ))}
       </ul>
+      <p>Total: {totalPrice.toFixed(2)} ₾</p>
     </div>
   );
 };
