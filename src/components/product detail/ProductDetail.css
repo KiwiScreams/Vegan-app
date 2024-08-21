@@ -73,6 +73,24 @@
   color: var(--green-clr);
   text-transform: uppercase;
 }
+.product-detail-section .add-to-cart
+{
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+  display: block;
+  font-size: 22px;
+  background-color: var(--green-clr);
+  color: var(--white-clr);
+  height: 50px;
+  border-radius: 0 35px 0 35px;
+  border: 3px solid var(--green-clr);
+}
+.product-detail-section .add-to-cart:hover
+{
+  background-color: transparent;
+  color: var(--green-clr);
+}
 @media screen and (max-width: 1300px) {
   .detail-container {
     width: 90%;

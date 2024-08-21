@@ -4,7 +4,11 @@ import { products } from "../../data/data";
 import { useState, useEffect } from "react";
 import RelatedList from "../related list/RelatedList";
 import Cart from "../cart/Cart";
-const ProductDetail = () => {
+const ProductDetail = ({ onAddToCart }) => {
+  const handleAddToCartClick = (item) =>
+  {
+    onAddToCart(item);
+  }
   const { id } = useParams();
   const productId = parseInt(id, 10);
   const product = products.find((product) => product.id === productId);
@@ -88,16 +92,21 @@ const ProductDetail = () => {
               <></>
             )}
             <p className="description">{product.description}</p>
+            <button
+              onClick={() => onAddToCart(product)}
+              className="add-to-cart"
+            >
+              კალათაში დამატება
+            </button>
           </div>
-          <button onClick={() => handleAddToCart(product)}>Add</button>
         </div>
       </section>
       <RelatedList relatedProducts={relatedProducts} />
-      <Cart
+      {/* <Cart
         cartItems={cartItems}
         onQuantityChange={handleQuantityChange}
         onDelete={handleDelete}
-      />
+      /> */}
     </>
   );
 };

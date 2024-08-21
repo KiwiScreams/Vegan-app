@@ -2,11 +2,10 @@ import React from "react";
 import "./Cart.css";
 import { useState, useEffect } from "react";
 
-const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
-  const totalPrice = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+const Cart = ({ cartItems, onQuantityChange, onDelete, onRemoveFromCart }) => {
+  const totalPrice =
+    cartItems?.reduce((acc, item) => acc + item.price * item.quantity, 0) ?? 0;
+
   const [isCartVisible, setIsCartVisible] = useState(false);
   const handleToggleCart = () => {
     setIsCartVisible(!isCartVisible);
@@ -51,7 +50,7 @@ const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
                       -
                     </button>
                   </div>
-                  <button className="delete-btn" onClick={() => onDelete(idx)}>
+                  <button className="delete-btn" onClick={() => onRemoveFromCart(item)}>
                     <i className="fa-solid fa-delete-left"></i>
                   </button>
                   <span>{(item.price * item.quantity).toFixed(2)} ₾</span>
