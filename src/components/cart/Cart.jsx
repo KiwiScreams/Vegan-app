@@ -19,7 +19,7 @@ const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
           <h2>Vegan | კალათა</h2>
           {cartItems.length === 0 ? (
             <p className="empty-cart">
-              კალათა ცარიელია <i class="fa-solid fa-cart-shopping"></i>
+              კალათა ცარიელია <i className="fa-solid fa-cart-shopping"></i>
             </p>
           ) : (
             <ul>
@@ -52,7 +52,7 @@ const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
                     </button>
                   </div>
                   <button className="delete-btn" onClick={() => onDelete(idx)}>
-                    <i class="fa-solid fa-delete-left"></i>
+                    <i className="fa-solid fa-delete-left"></i>
                   </button>
                   <span>{(item.price * item.quantity).toFixed(2)} ₾</span>
                 </li>
@@ -65,7 +65,7 @@ const Cart = ({ cartItems, onQuantityChange, onDelete }) => {
         </section>
       )}
       <button onClick={handleToggleCart} className="cart">
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i className="fa-solid fa-cart-shopping"></i>
       </button>
     </div>
   );
