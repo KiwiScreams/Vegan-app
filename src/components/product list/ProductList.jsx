@@ -3,6 +3,7 @@ import { products } from "../../data/data";
 import plusIcon from "../../assets/img/add.svg";
 import { Link, NavLink } from "react-router-dom";
 import "./ProductList.css";
+import Cart from "../cart/Cart";
 const ProductList = () => {
   const updatedProducts = products.map((product) => ({
     ...product,
@@ -115,6 +116,7 @@ const ProductList = () => {
           ))}
         </ul>
       </section>
+      <Cart />
     </>
   );
 };
