@@ -81,6 +81,11 @@ const ProductList = () => {
       )
     );
   };
+  const handleDelete = (idx) => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.filter((item, index) => index !== idx)
+    );
+  };
   return (
     <>
       <section className="product-list-section">
@@ -140,7 +145,11 @@ const ProductList = () => {
           ))}
         </ul>
       </section>
-      <Cart cartItems={cartItems} onQuantityChange={handleQuantityChange} />
+      <Cart
+        cartItems={cartItems}
+        onQuantityChange={handleQuantityChange}
+        onDelete={handleDelete}
+      />
     </>
   );
 };
