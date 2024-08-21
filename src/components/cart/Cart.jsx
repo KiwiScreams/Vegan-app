@@ -2,7 +2,7 @@ import React from "react";
 import "./Cart.css";
 import { useState, useEffect } from "react";
 
-const Cart = ({ cartItems, onQuantityChange, onDelete, onRemoveFromCart }) => {
+const Cart = ({ cartItems, onQuantityChange, onRemoveItem }) => {
   const totalPrice =
     cartItems?.reduce((acc, item) => acc + item.price * item.quantity, 0) ?? 0;
 
@@ -41,7 +41,7 @@ const Cart = ({ cartItems, onQuantityChange, onDelete, onRemoveFromCart }) => {
                       onClick={() => {
                         const newQuantity = item.quantity - 1;
                         if (newQuantity < 1) {
-                          onDelete(idx);
+                          onRemoveItem(item);
                         } else {
                           onQuantityChange(idx, newQuantity);
                         }
@@ -50,7 +50,10 @@ const Cart = ({ cartItems, onQuantityChange, onDelete, onRemoveFromCart }) => {
                       -
                     </button>
                   </div>
-                  <button className="delete-btn" onClick={() => onRemoveFromCart(item)}>
+                  <button
+                    className="delete-btn"
+                    onClick={() => onRemoveItem(item)}
+                  >
                     <i className="fa-solid fa-delete-left"></i>
                   </button>
                   <span>{(item.price * item.quantity).toFixed(2)} ₾</span>

@@ -34,32 +34,41 @@ function App() {
   const handleAddToCart = (item) => {
     const existingItem = cartItems.find((i) => i.id === item.id);
     if (existingItem) {
-      setCartItems((prevItems) => prevItems.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i)));
+      setCartItems((prevItems) =>
+        prevItems.map((i) =>
+          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+        )
+      );
     } else {
       setCartItems((prevItems) => [...prevItems, { ...item, quantity: 1 }]);
     }
   };
-  
-  const handleRemoveFromCart = (item) => {
-    const existingItem = cartItems.find((i) => i.id === item.id);
-    if (existingItem.quantity > 1) {
-      setCartItems((prevItems) => prevItems.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity - 1 } : i)));
-    } else {
-      setCartItems((prevItems) => prevItems.filter((i) => i.id !== item.id));
-    }
+
+  const handleRemoveItem = (item) => {
+    setCartItems((prevItems) => prevItems.filter((i) => i.id !== item.id));
   };
 
   const totalPrice = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+  const handleQuantityChange = (idx, newQuantity) => {
+    setCartItems(
+      cartItems.map((item, index) => {
+        if (index === idx) {
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      })
+    );
+  };
   return (
     <>
       <Header />
       <Cart
         cartItems={cartItems}
-        totalPrice={totalPrice}
-        onRemoveFromCart={handleRemoveFromCart}
+        onQuantityChange={handleQuantityChange}
+        onRemoveItem={handleRemoveItem}
       />
       <Routes>
         <Route path="/" element={<Home />} />
