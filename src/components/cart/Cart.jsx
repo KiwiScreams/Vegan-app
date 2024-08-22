@@ -1,6 +1,7 @@
 import React from "react";
 import "./Cart.css";
 import { useState, useEffect } from "react";
+import Panel from "../panel/Panel";
 
 const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
   const [isCartVisible, setIsCartVisible] = useState(false);

@@ -4,6 +4,8 @@ import plusIcon from "../../assets/img/add.svg";
 import { Link, NavLink } from "react-router-dom";
 import "./ProductList.css";
 import Cart from "../cart/Cart";
+import Panel from "../panel/Panel";
+
 const ProductList = ({ onAddToCart }) => {
   const updatedProducts = products.map((product) => ({
     ...product,
@@ -11,6 +13,8 @@ const ProductList = ({ onAddToCart }) => {
       ? product.category
       : [product.category],
   }));
+  const [showPanel, setShowPanel] = useState(false);
+  const [cartMessage, setCartMessage] = useState("ghj");
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(updatedProducts);
   let filters = [
@@ -38,6 +42,11 @@ const ProductList = ({ onAddToCart }) => {
     filterItems();
   }, [selectedFilters]);
 
+  const handleAddToCart = (item) => {
+    onAddToCart(item);
+    setCartMessage("Product is added!");
+    setShowPanel(true);
+  };
   const filterItems = () => {
     if (selectedFilters.length > 0) {
       const filteredItems = updatedProducts.filter((blog) => {
@@ -64,7 +73,7 @@ const ProductList = ({ onAddToCart }) => {
           {filteredItems.length > 0 ? (
             filteredItems.map((item, idx) => (
               <div key={`blogs-${idx}`} className="product">
-                <div className="plus" onClick={() => onAddToCart(item)}>
+                <div className="plus" onClick={() => handleAddToCart(item)}>
                   <img src={plusIcon} alt="" />
                 </div>
                 <div className="product-image-container">
@@ -115,6 +124,7 @@ const ProductList = ({ onAddToCart }) => {
           ))}
         </ul>
       </section>
+        <Panel show={showPanel} message={cartMessage} onClose={() => setShowPanel(false)} />
     </>
   );
 };
