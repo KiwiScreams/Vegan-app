@@ -56,9 +56,6 @@
   top: 0px;
   right: 0px;
 }
-.product .plus:hover {
-  transform: scale(1.2);
-}
 .product .plus:active {
   opacity: 0.7;
 }

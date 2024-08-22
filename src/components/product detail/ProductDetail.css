@@ -91,6 +91,17 @@
   background-color: transparent;
   color: var(--green-clr);
 }
+.product-detail-section .grade
+{
+  width: fit-content;
+  gap: 2px;
+}
+.product-detail-section .grade i,
+.product-detail-section .grade p
+{
+  font-size: 32px;
+  color: var(--green-clr);
+}
 @media screen and (max-width: 1300px) {
   .detail-container {
     width: 90%;
