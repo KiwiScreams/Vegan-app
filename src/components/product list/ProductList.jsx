@@ -14,7 +14,7 @@ const ProductList = ({ onAddToCart }) => {
       : [product.category],
   }));
   const [showPanel, setShowPanel] = useState(false);
-  const [cartMessage, setCartMessage] = useState("ghj");
+  const [cartMessage, setCartMessage] = useState("");
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(updatedProducts);
   let filters = [
@@ -46,6 +46,9 @@ const ProductList = ({ onAddToCart }) => {
     onAddToCart(item);
     setCartMessage("Product is added!");
     setShowPanel(true);
+    setTimeout(() => {
+      setShowPanel(false);
+    }, 3000);
   };
   const filterItems = () => {
     if (selectedFilters.length > 0) {
@@ -124,7 +127,7 @@ const ProductList = ({ onAddToCart }) => {
           ))}
         </ul>
       </section>
-        <Panel show={showPanel} message={cartMessage} />
+      <Panel show={showPanel} message={cartMessage} />
     </>
   );
 };

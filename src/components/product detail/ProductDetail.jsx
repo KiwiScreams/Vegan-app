@@ -4,14 +4,13 @@ import { products } from "../../data/data";
 import { useState, useEffect } from "react";
 import RelatedList from "../related list/RelatedList";
 import Cart from "../cart/Cart";
+import Panel from "../panel/Panel";
 const ProductDetail = ({ onAddToCart }) => {
-  const handleAddToCart = (item) => {
-    onAddToCart(item);
-  };
   const { id } = useParams();
   const productId = parseInt(id, 10);
   const product = products.find((product) => product.id === productId);
-
+  const [showPanel, setShowPanel] = useState(false);
+  const [cartMessage, setCartMessage] = useState("");
   const relatedProducts = products
     .filter((relatedProduct) => {
       if (relatedProduct.id === productId) return false;
@@ -20,6 +19,14 @@ const ProductDetail = ({ onAddToCart }) => {
       );
     })
     .filter((relatedProduct) => relatedProduct.category.length > 0);
+  const handleAddToCart = (item) => {
+    onAddToCart(item);
+    setCartMessage("Product is added!");
+    setShowPanel(true);
+    setTimeout(() => {
+      setShowPanel(false);
+    }, 3000);
+  };
   return (
     <>
       <section className="product-detail-section">
@@ -59,7 +66,7 @@ const ProductDetail = ({ onAddToCart }) => {
             )}
             <p className="description">{product.description}</p>
             <button
-              onClick={() => onAddToCart(product)}
+              onClick={() => handleAddToCart(product)}
               className="add-to-cart"
             >
               კალათაში დამატება
@@ -67,9 +74,8 @@ const ProductDetail = ({ onAddToCart }) => {
           </div>
         </div>
       </section>
-      <RelatedList
-        relatedProducts={relatedProducts}
-      />
+      <RelatedList relatedProducts={relatedProducts} />
+      <Panel show={showPanel} message={cartMessage} />
     </>
   );
 };
