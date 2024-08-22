@@ -8,11 +8,14 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
   const handleToggleCart = () => {
     setIsCartVisible(!isCartVisible);
   };
+
   const getDiscountedPrice = (item) => {
     return item.discount
       ? item.price - (item.price * item.discount) / 100
       : item.price;
   };
+  const cartQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <div>
       {isCartVisible && (
@@ -26,7 +29,9 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
             </p>
           ) : (
             <ul>
-             
+              <p className="products-quantity">
+                შენს კალათაში {cartQuantity} პროდუქტია
+              </p>
               {cartItems.map((item, idx) => (
                 <li key={idx}>
                   <div className="cart-image">

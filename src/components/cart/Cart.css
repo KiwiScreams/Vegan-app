@@ -116,7 +116,11 @@ button.cart:hover {
 .cart-section.visible {
   animation: slideIn 0.5s forwards;
 }
-
+.products-quantity
+{
+  margin-bottom: 10px;
+  font-size: 22px;
+}
 @keyframes slideIn {
   0% {
     transform: translateY(-100%);
