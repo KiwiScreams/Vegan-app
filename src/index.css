@@ -58,6 +58,9 @@ a {
 .box:hover .white-on-hover {
   filter: invert(100%);
 }
+.no-scroll {
+  overflow: hidden;
+}
 @media screen and (max-width: 1000px) {
   body {
     background-size: 100% 100%;

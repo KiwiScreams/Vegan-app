@@ -25,6 +25,7 @@
   padding: 10px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
 }
 .cart-section .cart-image img {
@@ -69,12 +70,30 @@
   gap: 10px;
   align-items: center;
 }
-.cart-section .total-price {
+.cart-section .bottom {
   position: fixed;
   bottom: 20px;
-  font-size: 30px;
-  background-color: var(--green-clr);
+  gap: 30px;
   right: 20px;
+  width: 90%;
+  justify-content: space-between;
+}
+.cart-section .total-price {
+  font-size: 30px;
+}
+.cart-section .bottom button {
+  color: var(--white-clr);
+  background-color: transparent;
+  font-size: 18px;
+  border: 3px solid var(--white-clr);
+  border-radius: 35px;
+  height: 50px;
+  padding: 0 20px;
+}
+.cart-section .bottom button:hover
+{
+  background-color: var(--white-clr);
+  color: var(--green-clr);
 }
 button.cart {
   background-color: var(--green-clr);

@@ -32,6 +32,18 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
     setIsConfirmDeleteVisible(false);
     setItemToDelete(null);
   };
+  const handleClearCart = () => {
+    cartItems.forEach((item) => {
+      onRemoveItem(item);
+    });
+  };
+  useEffect(() => {
+    if (isConfirmDeleteVisible) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isConfirmDeleteVisible]);
   return (
     <div>
       {isCartVisible && (
@@ -91,7 +103,12 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
               ))}
             </ul>
           )}
-          <p className="total-price">თანხა: {totalPrice.toFixed(2)} ₾</p>
+          <div className="flex bottom">
+            <button onClick={handleClearCart}>
+              კალათის გასუფთავება
+            </button>
+            <p className="total-price">თანხა: {totalPrice.toFixed(2)} ₾</p>
+          </div>
         </section>
       )}
       {isConfirmDeleteVisible && (
