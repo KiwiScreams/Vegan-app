@@ -95,11 +95,20 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
         </section>
       )}
       {isConfirmDeleteVisible && (
-        <section className="confirm-delete">
-          <h2>დაადასტურე წაშლა</h2>
-          <p>დარწმუნებული ხართ, რომ გსურთ ამ პროდუქტის წაშლა?</p>
-          <button onClick={handleConfirmDelete}>დიახ</button>
-          <button onClick={handleCancelDelete}>არა</button>
+        <section className="dark-screen">
+          <div className="confirm-delete-section">
+            <div onClick={handleCancelDelete} className="change cancel">
+              <div className="bar1"></div>
+              <div className="bar2"></div>
+              <div className="bar3"></div>
+            </div>
+            <h2>პროდუქტის ამოშლა</h2>
+            <p>დარწმუნებული ხართ, რომ გსურთ ამ პროდუქტის წაშლა?</p>
+            <div className="buttons">
+              <button onClick={handleConfirmDelete}>დიახ</button>
+              <button onClick={handleCancelDelete}>არა</button>
+            </div>
+          </div>
         </section>
       )}
       <button onClick={handleToggleCart} className="cart">

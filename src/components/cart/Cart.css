@@ -130,8 +130,65 @@ button.cart:hover {
     opacity: 1;
   }
 }
-
-
+.dark-screen {
+  width: 100%;
+  height: 100%;
+  background-color: #00000087;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+}
+.confirm-delete-section {
+  background-color: var(--white-clr);
+  border: 5px solid var(--green-clr);
+  padding: 20px 40px;
+  z-index: 31;
+  text-align: center;
+  border-radius: 35px;
+  margin: 0 auto;
+}
+.confirm-delete-section h2 {
+  color: var(--green-clr);
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+.confirm-delete-section p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+.confirm-delete-section .buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: fit-content;
+  margin: auto;
+}
+.confirm-delete-section button {
+  border-radius: 35px;
+  height: 60px;
+  width: 120px;
+  font-size: 22px;
+  background-color: transparent;
+  background-color: var(--green-clr);
+  border: 3px solid var(--green-clr);
+  color: var(--white-clr);
+}
+.confirm-delete-section button:hover {
+  opacity: 0.7;
+}
+.confirm-delete-section button:nth-child(1) {
+  border: 3px solid var(--green-clr);
+  background-color: transparent;
+  color: var(--black-clr);
+}
+.confirm-delete-section .cancel.change {
+  float: right;
+  cursor: pointer;
+}
 @media screen and (max-width: 700px) {
   button.cart {
     padding: 10px;
