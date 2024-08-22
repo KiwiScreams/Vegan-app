@@ -19,8 +19,7 @@
   width: 70px;
   height: 70px;
 }
-.cart-section ul
-{
+.cart-section ul {
   height: 80vh;
   overflow-y: scroll;
   padding-right: 16px;
@@ -98,8 +97,7 @@
   padding: 0 20px;
 }
 .cart-section .bottom button:hover,
-.cart-section .top button:hover
-{
+.cart-section .top button:hover {
   background-color: var(--white-clr);
   color: var(--green-clr);
 }
@@ -143,8 +141,7 @@ button.cart:hover {
 .cart-section.visible {
   animation: slideIn 0.5s forwards;
 }
-.cart-section .top
-{
+.cart-section .top {
   margin-bottom: 30px;
 }
 .products-quantity {

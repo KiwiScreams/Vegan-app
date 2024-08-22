@@ -10,9 +10,11 @@ import ProductList from "./components/product list/ProductList";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Cart from "./components/cart/Cart";
+import CheckOut from "./components/checkout/CheckOut";
 function App() {
   const location = useLocation();
   const [cartItems, setCartItems] = useState([]);
+
   useEffect(() => {
     switch (location.pathname) {
       case "/":
@@ -88,6 +90,7 @@ function App() {
           path="/product/:id"
           element={<ProductDetail onAddToCart={handleAddToCart} />}
         />
+        <Route path="/checkout" element={<CheckOut />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
