@@ -8,14 +8,30 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
   const handleToggleCart = () => {
     setIsCartVisible(!isCartVisible);
   };
-
+  const [isConfirmDeleteVisible, setIsConfirmDeleteVisible] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
   const getDiscountedPrice = (item) => {
     return item.discount
       ? item.price - (item.price * item.discount) / 100
       : item.price;
   };
   const cartQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const handleDeleteItem = (item) => {
+    console.log("handleDeleteItem called", item);
+    setItemToDelete(item);
+    setIsConfirmDeleteVisible(true);
+  };
 
+  const handleConfirmDelete = () => {
+    onRemoveItem(itemToDelete);
+    setIsConfirmDeleteVisible(false);
+    setItemToDelete(null);
+  };
+
+  const handleCancelDelete = () => {
+    setIsConfirmDeleteVisible(false);
+    setItemToDelete(null);
+  };
   return (
     <div>
       {isCartVisible && (
@@ -53,7 +69,7 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
                       onClick={() => {
                         const newQuantity = item.quantity - 1;
                         if (newQuantity < 1) {
-                          onRemoveItem(item);
+                          handleDeleteItem(item);
                         } else {
                           onQuantityChange(idx, newQuantity);
                         }
@@ -64,7 +80,7 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
                   </div>
                   <button
                     className="delete-btn"
-                    onClick={() => onRemoveItem(item)}
+                    onClick={() => handleDeleteItem(item)}
                   >
                     <i className="fa-solid fa-delete-left"></i>
                   </button>
@@ -76,6 +92,14 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
             </ul>
           )}
           <p className="total-price">თანხა: {totalPrice.toFixed(2)} ₾</p>
+        </section>
+      )}
+      {isConfirmDeleteVisible && (
+        <section className="confirm-delete">
+          <h2>დაადასტურე წაშლა</h2>
+          <p>დარწმუნებული ხართ, რომ გსურთ ამ პროდუქტის წაშლა?</p>
+          <button onClick={handleConfirmDelete}>დიახ</button>
+          <button onClick={handleCancelDelete}>არა</button>
         </section>
       )}
       <button onClick={handleToggleCart} className="cart">

@@ -116,8 +116,7 @@ button.cart:hover {
 .cart-section.visible {
   animation: slideIn 0.5s forwards;
 }
-.products-quantity
-{
+.products-quantity {
   margin-bottom: 10px;
   font-size: 22px;
 }
@@ -131,6 +130,8 @@ button.cart:hover {
     opacity: 1;
   }
 }
+
+
 @media screen and (max-width: 700px) {
   button.cart {
     padding: 10px;
