@@ -1,11 +1,58 @@
 import "./CheckOut.css";
+import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 const CheckOut = () => {
-    const navigate = useNavigate();
-    const handleCheckout = () => {
-        navigate("/");
-        window.location.reload();
+  const [errors, setErrors] = useState({});
+  const [formValues, setFormValues] = useState({
+    fullname: "",
+    email: "",
+    address: "",
+    cardFullname: "",
+    cardNumber: "",
+  });
+  const handleCheckout = (e) => {
+    e.preventDefault();
+    const isValid = validateForm();
+    if (isValid) {
+      navigate("/");
+      window.location.reload();
     }
+  };
+  const doubleClick = () =>
+  {
+    window.location.reload();
+  }
+  const validateForm = () => {
+    const errors = {};
+    if (!formValues.fullname) {
+      errors.fullname = "სახელი და გვარი აუცილებელია";
+    }
+    if (!formValues.email) {
+      errors.email = "Email აუცილებელია";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formValues.email)
+    ) {
+      errors.email = "გთხოვთ შეიყვანოთ სწორი Email";
+    }
+    if (!formValues.address) {
+      errors.address = "მისამართი აუცილებელია";
+    }
+    if (!formValues.cardFullname) {
+      errors.cardFullname = "ბარათის დასახელება აუცილებელია";
+    }
+    if (!formValues.cardNumber) {
+      errors.cardNumber = "ბარათის ნომერი აუცილებელია";
+    } else if (!/^\d{16}$/.test(formValues.cardNumber)) {
+      errors.cardNumber = "გთხოვთ შეიყვანოთ სწორი ბარათის ნომერი";
+    }
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
+  };
   return (
     <>
       <div className="darkk-screen">
@@ -82,7 +129,7 @@ const CheckOut = () => {
               </div>
             </div>
           </div>
-          <button onClick={handleCheckout}>OK</button>
+          <button onClick={doubleClick}>OK</button>
         </section>
       </div>
     </>
