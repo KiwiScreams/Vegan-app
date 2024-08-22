@@ -46,11 +46,10 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
       document.body.classList.remove("no-scroll");
     }
   }, [isConfirmDeleteVisible]);
-  const handleCheckOut = () =>
-  {
+  const handleCheckOut = () => {
     console.log("check out");
     navigate("/checkout");
-  }
+  };
   return (
     <div>
       {isCartVisible && (

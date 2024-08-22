@@ -101,25 +101,6 @@
   background-color: var(--white-clr);
   color: var(--green-clr);
 }
-button.cart {
-  background-color: var(--green-clr);
-  color: var(--white-clr);
-  padding: 10px 20px;
-  border: 3px solid var(--green-clr);
-  border-radius: 0 0 0 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 22;
-  font-size: 30px;
-  outline: 3px solid var(--white-clr);
-}
-button.cart:hover {
-  transform: scale(1.2);
-  border: 3px solid var(--green-clr);
-  color: var(--green-clr);
-  background-color: var(--white-clr);
-}
 .empty-cart {
   text-align: center;
   font-size: 32px;
