@@ -2,12 +2,14 @@ import React from "react";
 import "./Cart.css";
 import { useState, useEffect } from "react";
 import Panel from "../panel/Panel";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
   const [isCartVisible, setIsCartVisible] = useState(false);
   const handleToggleCart = () => {
     setIsCartVisible(!isCartVisible);
   };
+  const navigate = useNavigate();
   const [isConfirmDeleteVisible, setIsConfirmDeleteVisible] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
   const getDiscountedPrice = (item) => {
@@ -44,6 +46,11 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
       document.body.classList.remove("no-scroll");
     }
   }, [isConfirmDeleteVisible]);
+  const handleCheckOut = () =>
+  {
+    console.log("check out");
+    navigate("/checkout");
+  }
   return (
     <div>
       {isCartVisible && (
@@ -107,7 +114,7 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
                 ))}
               </ul>
               <div className="flex bottom">
-                <button onClick={handleClearCart}>შემდეგი</button>
+                <button onClick={handleCheckOut}>შემდეგი</button>
                 <p className="total-price">თანხა: {totalPrice.toFixed(2)} ₾</p>
               </div>
             </div>
