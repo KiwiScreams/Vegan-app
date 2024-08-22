@@ -1,8 +1,14 @@
 import "./CheckOut.css";
+import { Navigate, useNavigate } from "react-router-dom";
 const CheckOut = () => {
+    const navigate = useNavigate();
+    const handleCheckout = () => {
+        navigate("/");
+        window.location.reload();
+    }
   return (
     <>
-      <div className="dark-screen">
+      <div className="darkk-screen">
         <section className="checkout-section">
           <h2>
             <span className="first-letter">ბ</span>არათის დამატება
@@ -11,7 +17,7 @@ const CheckOut = () => {
             <div className="container user-info-container">
               <div className="input-container">
                 <div className="label-container">
-                  <i class="fa-solid fa-user"></i>
+                  <i className="fa-solid fa-user"></i>
                   <label htmlFor="fullname">სახელი | გვარი</label>
                 </div>
                 <input
@@ -23,7 +29,7 @@ const CheckOut = () => {
               </div>
               <div className="input-container">
                 <div className="label-container">
-                  <i class="fa-solid fa-envelope"></i>
+                  <i className="fa-solid fa-envelope"></i>
                   <label htmlFor="email">Email</label>
                 </div>
                 <input
@@ -35,7 +41,7 @@ const CheckOut = () => {
               </div>
               <div className="input-container">
                 <div className="label-container">
-                  <i class="fa-regular fa-address-card"></i>
+                  <i className="fa-regular fa-address-card"></i>
                   <label htmlFor="address">მისამართი</label>
                 </div>
                 <input
@@ -48,9 +54,9 @@ const CheckOut = () => {
             </div>
             <div className="container payment-container">
               <div className="cards-container flex">
-                <i class="fa-brands fa-cc-visa"></i>
-                <i class="fa-brands fa-cc-paypal"></i>
-                <i class="fa-brands fa-cc-discover"></i>
+                <i className="fa-brands fa-cc-visa"></i>
+                <i className="fa-brands fa-cc-paypal"></i>
+                <i className="fa-brands fa-cc-discover"></i>
               </div>
               <div className="input-container">
                 <div className="label-container">
@@ -76,7 +82,7 @@ const CheckOut = () => {
               </div>
             </div>
           </div>
-          <button>OK</button>
+          <button onClick={handleCheckout}>OK</button>
         </section>
       </div>
     </>
