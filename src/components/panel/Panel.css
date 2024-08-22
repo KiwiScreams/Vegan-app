@@ -1,0 +1,32 @@
+.panel-section
+{
+    position: fixed;
+    top: 10px;
+    width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+    text-align: center;
+    padding: 30px;
+    background-color: var(--green-clr);
+    color: var(--white-clr);
+    animation: 3s panelAnim ease-in-out;
+}
+@keyframes panelAnim
+{
+    0%
+    {
+        top: -20px;
+        opacity: 0;
+    }
+    50%
+    {
+        top: 10px;
+        opacity: 1;
+    }
+    100%
+    {
+        top: -20px;
+        opacity: 0;
+    }
+}

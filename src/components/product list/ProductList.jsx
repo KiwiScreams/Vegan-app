@@ -124,7 +124,7 @@ const ProductList = ({ onAddToCart }) => {
           ))}
         </ul>
       </section>
-        <Panel show={showPanel} message={cartMessage} onClose={() => setShowPanel(false)} />
+        <Panel show={showPanel} message={cartMessage} />
     </>
   );
 };
