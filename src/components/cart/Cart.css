@@ -3,7 +3,6 @@
   top: 0;
   bottom: 0;
   right: 0;
-  overflow-y: scroll;
   padding: 30px 20px;
   color: var(--white-clr);
   box-shadow: 0 0 20px var(--black-clr);
@@ -20,11 +19,18 @@
   width: 70px;
   height: 70px;
 }
+.cart-section ul
+{
+  height: 80vh;
+  overflow-y: scroll;
+  padding-right: 16px;
+}
 .cart-section li {
   border-bottom: 1px solid var(--grey-clr);
   padding: 10px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
 }
 .cart-section .cart-image img {
@@ -69,12 +75,33 @@
   gap: 10px;
   align-items: center;
 }
-.cart-section .total-price {
+.cart-section .bottom {
   position: fixed;
   bottom: 20px;
-  font-size: 30px;
-  background-color: var(--green-clr);
+  gap: 30px;
   right: 20px;
+  background-color: var(--green-clr);
+  width: 90%;
+  justify-content: space-between;
+}
+.cart-section .total-price {
+  font-size: 30px;
+}
+.cart-section .bottom button,
+.cart-section .top button {
+  color: var(--white-clr);
+  background-color: transparent;
+  font-size: 18px;
+  border: 3px solid var(--white-clr);
+  border-radius: 35px;
+  height: 50px;
+  padding: 0 20px;
+}
+.cart-section .bottom button:hover,
+.cart-section .top button:hover
+{
+  background-color: var(--white-clr);
+  color: var(--green-clr);
 }
 button.cart {
   background-color: var(--green-clr);
@@ -116,8 +143,11 @@ button.cart:hover {
 .cart-section.visible {
   animation: slideIn 0.5s forwards;
 }
+.cart-section .top
+{
+  margin-bottom: 30px;
+}
 .products-quantity {
-  margin-bottom: 10px;
   font-size: 22px;
 }
 @keyframes slideIn {

@@ -32,6 +32,18 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
     setIsConfirmDeleteVisible(false);
     setItemToDelete(null);
   };
+  const handleClearCart = () => {
+    cartItems.forEach((item) => {
+      onRemoveItem(item);
+    });
+  };
+  useEffect(() => {
+    if (isConfirmDeleteVisible) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isConfirmDeleteVisible]);
   return (
     <div>
       {isCartVisible && (
@@ -44,54 +56,62 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
               კალათა ცარიელია <i className="fa-solid fa-cart-shopping"></i>
             </p>
           ) : (
-            <ul>
-              <p className="products-quantity">
-                შენს კალათაში {cartQuantity} პროდუქტია
-              </p>
-              {cartItems.map((item, idx) => (
-                <li key={idx}>
-                  <div className="cart-image">
-                    <img src={item.image} alt="" />
-                  </div>
-                  <span className="title">{item.title}</span>
-                  <div className="buttons">
+            <div>
+              <ul>
+                <div className="flex top">
+                  <p className="products-quantity">
+                    შენს კალათაში {cartQuantity} პროდუქტია
+                  </p>
+                  <button onClick={handleClearCart}>კალათის გასუფთავება</button>
+                </div>
+                {cartItems.map((item, idx) => (
+                  <li key={idx}>
+                    <div className="cart-image">
+                      <img src={item.image} alt="" />
+                    </div>
+                    <span className="title">{item.title}</span>
+                    <div className="buttons">
+                      <button
+                        className="plus-btn"
+                        onClick={() => onQuantityChange(idx, item.quantity + 1)}
+                      >
+                        +
+                      </button>
+                      <span id="quantity">
+                        <span>{item.quantity}</span>
+                      </span>
+                      <button
+                        className="minus-btn"
+                        onClick={() => {
+                          const newQuantity = item.quantity - 1;
+                          if (newQuantity < 1) {
+                            handleDeleteItem(item);
+                          } else {
+                            onQuantityChange(idx, newQuantity);
+                          }
+                        }}
+                      >
+                        -
+                      </button>
+                    </div>
                     <button
-                      className="plus-btn"
-                      onClick={() => onQuantityChange(idx, item.quantity + 1)}
+                      className="delete-btn"
+                      onClick={() => handleDeleteItem(item)}
                     >
-                      +
+                      <i className="fa-solid fa-delete-left"></i>
                     </button>
-                    <span id="quantity">
-                      <span>{item.quantity}</span>
+                    <span className="total-item-price">
+                      {(getDiscountedPrice(item) * item.quantity).toFixed(2)} ₾
                     </span>
-                    <button
-                      className="minus-btn"
-                      onClick={() => {
-                        const newQuantity = item.quantity - 1;
-                        if (newQuantity < 1) {
-                          handleDeleteItem(item);
-                        } else {
-                          onQuantityChange(idx, newQuantity);
-                        }
-                      }}
-                    >
-                      -
-                    </button>
-                  </div>
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDeleteItem(item)}
-                  >
-                    <i className="fa-solid fa-delete-left"></i>
-                  </button>
-                  <span className="total-item-price">
-                    {(getDiscountedPrice(item) * item.quantity).toFixed(2)} ₾
-                  </span>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex bottom">
+                <button onClick={handleClearCart}>შემდეგი</button>
+                <p className="total-price">თანხა: {totalPrice.toFixed(2)} ₾</p>
+              </div>
+            </div>
           )}
-          <p className="total-price">თანხა: {totalPrice.toFixed(2)} ₾</p>
         </section>
       )}
       {isConfirmDeleteVisible && (
