@@ -10,7 +10,6 @@ import ProductList from "./components/product list/ProductList";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Cart from "./components/cart/Cart";
-import CartButton from "./components/cart button/CartButton";
 import CheckOut from "./components/checkout/CheckOut";
 function App() {
   const location = useLocation();
@@ -70,26 +69,15 @@ function App() {
       })
     );
   };
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  const handleToggleCart = () => {
-    setIsCartOpen(!isCartOpen);
-  };
   return (
     <>
       <Header />
-      <CartButton handleToggleCart={handleToggleCart} isCartOpen={isCartOpen} />
-      {isCartOpen && (
-        <Cart
-          cartItems={cartItems}
-          onQuantityChange={handleQuantityChange}
-          onRemoveItem={handleRemoveItem}
-          totalPrice={totalPrice}
-        />
-      )}
-      {/* <Cart */}
-
-      {/* /> */}
+      <Cart
+        cartItems={cartItems}
+        onQuantityChange={handleQuantityChange}
+        onRemoveItem={handleRemoveItem}
+        totalPrice={totalPrice}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/stores" element={<Stores />} />
