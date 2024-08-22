@@ -1,0 +1,13 @@
+.panel-section
+{
+    position: fixed;
+    top: 20px;
+    width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+    text-align: center;
+    padding: 30px;
+    background-color: var(--green-clr);
+    color: var(--white-clr);
+}
