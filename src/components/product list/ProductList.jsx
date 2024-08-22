@@ -44,7 +44,7 @@ const ProductList = ({ onAddToCart }) => {
 
   const handleAddToCart = (item) => {
     onAddToCart(item);
-    setCartMessage("Product is added!");
+    setCartMessage(`თქვენ დაამატეთ ${item.title} თქვენს კალათაში`);
     setShowPanel(true);
     setTimeout(() => {
       setShowPanel(false);

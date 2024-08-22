@@ -7,7 +7,7 @@ const Panel = ({ show, message }) => {
     <>
       <section className="panel-section">
         <div className="panel-content">
-          <p>{message}</p>
+          <p>{message} <i className="fa-solid fa-cart-plus"></i></p>
         </div>
       </section>
     </>

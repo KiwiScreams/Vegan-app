@@ -21,12 +21,21 @@ const ProductDetail = ({ onAddToCart }) => {
     .filter((relatedProduct) => relatedProduct.category.length > 0);
   const handleAddToCart = (item) => {
     onAddToCart(item);
-    setCartMessage("Product is added!");
+    setCartMessage(`თქვენ დაამატეთ ${item.title} თქვენს კალათაში`);
     setShowPanel(true);
     setTimeout(() => {
       setShowPanel(false);
     }, 3000);
   };
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseOver = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovered(false);
+  };
+
   return (
     <>
       <section className="product-detail-section">
@@ -44,18 +53,28 @@ const ProductDetail = ({ onAddToCart }) => {
               <span className="first-letter">{product.title.charAt(0)}</span>
               {product.title.slice(1)}
             </h1>
-            <p className="price">
-              ფასი:
-              <span>
-                {product.discount > 0
-                  ? (
-                      product.price -
-                      (product.price * product.discount) / 100
-                    ).toFixed(2)
-                  : product.price.toFixed(2)}
-                <i className="fa-solid fa-lari-sign"></i>
-              </span>
-            </p>
+            <div className="flex">
+              <p className="price">
+                ფასი:
+                <span>
+                  {product.discount > 0
+                    ? (
+                        product.price -
+                        (product.price * product.discount) / 100
+                      ).toFixed(2)
+                    : product.price.toFixed(2)}
+                  <i className="fa-solid fa-lari-sign"></i>
+                </span>
+              </p>
+              <div className="grade flex">
+                <i
+                  className={`fa-star ${isHovered ? "fa-solid" : "fa-regular"}`}
+                  onMouseOver={handleMouseOver}
+                  onMouseOut={handleMouseOut}
+                ></i>
+                <p>{product.grade}</p>
+              </div>
+            </div>
             {product.discount > 0 ? (
               <p className="old-price">
                 ძველი ფასი: {product.price.toFixed(2)}

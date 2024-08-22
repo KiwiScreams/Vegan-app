@@ -2,12 +2,13 @@
 {
     position: fixed;
     top: 20px;
-    width: 300px;
+    width: fit-content;
     left: 50%;
     transform: translateX(-50%);
     font-size: 22px;
     text-align: center;
     padding: 30px;
-    background-color: var(--green-clr);
-    color: var(--white-clr);
+    border: 3px solid var(--green-clr);
+    background-color: var(--white-clr);
+    color: var(--green-clr);
 }

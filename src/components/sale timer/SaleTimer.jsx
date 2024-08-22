@@ -2,9 +2,9 @@ import "./SaleTimer.css";
 import { useState, useEffect } from "react";
 const SaleTimer = () => {
   const [time, setTime] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
+    days: 3,
+    hours: 21,
+    minutes: 34,
     seconds: 1,
   });
 

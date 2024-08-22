@@ -26,8 +26,9 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
             </p>
           ) : (
             <ul>
+             
               {cartItems.map((item, idx) => (
-                <li key={idx} className="flex">
+                <li key={idx}>
                   <div className="cart-image">
                     <img src={item.image} alt="" />
                   </div>
@@ -69,7 +70,7 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
               ))}
             </ul>
           )}
-          <p className="total-price">Total: {totalPrice.toFixed(2)} ₾</p>
+          <p className="total-price">თანხა: {totalPrice.toFixed(2)} ₾</p>
         </section>
       )}
       <button onClick={handleToggleCart} className="cart">
