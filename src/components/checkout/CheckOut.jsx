@@ -38,6 +38,10 @@ const CheckOut = () => {
     }
     if (!formValues.cardFullname) {
       errors.cardFullname = "ბარათის დასახელება აუცილებელია";
+    } else if (
+      !["PayPal", "Visa", "Discover"].includes(formValues.cardFullname)
+    ) {
+      errors.cardFullname = "გთხოვთ შეიყვანოთ მხოლოდ PayPal, Visa ან Discover";
     }
     if (!formValues.cardNumber) {
       errors.cardNumber = "ბარათის ნომერი აუცილებელია";
