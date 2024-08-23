@@ -29,6 +29,7 @@
 }
 .container .input-container {
   margin-top: 20px;
+  position: relative;
 }
 .container .input-container .label-container {
   display: flex;
@@ -87,4 +88,14 @@
 }
 .checkout-section .change {
   cursor: pointer;
+}
+.input-error-message
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 14px;
+  border-radius: 0 35px 0 35px;
+  color: var(--white-clr);
+  background-color: var(--green-clr);
 }

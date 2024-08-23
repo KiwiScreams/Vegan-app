@@ -83,7 +83,11 @@ const CheckOut = () => {
                     placeholder="შეიყვანეთ თქვენი სახელი და გვარი"
                   />
                   {errors.fullname && (
-                    <div style={{ color: "red" }}>{errors.fullname}</div>
+                    <div
+                      className="input-error-message"
+                    >
+                      {errors.fullname}
+                    </div>
                   )}
                 </div>
                 <div className="input-container">
@@ -98,7 +102,11 @@ const CheckOut = () => {
                     placeholder="john@gmail.com"
                   />
                   {errors.email && (
-                    <div style={{ color: "red" }}>{errors.email}</div>
+                    <div
+                      className="input-error-message"
+                    >
+                      {errors.email}
+                    </div>
                   )}
                 </div>
                 <div className="input-container">
@@ -113,7 +121,11 @@ const CheckOut = () => {
                     placeholder="შეიყვანეთ თქვენი მისამართი"
                   />
                   {errors.address && (
-                    <div style={{ color: "red" }}>{errors.address}</div>
+                    <div
+                      className="input-error-message"
+                    >
+                      {errors.address}
+                    </div>
                   )}
                 </div>
               </div>
@@ -134,7 +146,11 @@ const CheckOut = () => {
                     placeholder="შეიყვანეთ ბარათის დასახელება"
                   />
                   {errors.cardFullname && (
-                    <div style={{ color: "red" }}>{errors.cardFullname}</div>
+                    <div
+                      className="input-error-message"
+                    >
+                      {errors.cardFullname}
+                    </div>
                   )}
                 </div>
                 <div className="input-container">
@@ -148,7 +164,11 @@ const CheckOut = () => {
                     placeholder="შეიყვანეთ ბარათის ნომერი"
                   />
                   {errors.cardNumber && (
-                    <div style={{ color: "red" }}>{errors.cardNumber}</div>
+                    <div
+                      className="input-error-message"
+                    >
+                      {errors.cardNumber}
+                    </div>
                   )}
                 </div>
               </div>
