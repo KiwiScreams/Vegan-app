@@ -76,7 +76,7 @@
 .product-detail-section .add-to-cart
 {
   width: 50%;
-  margin: auto;
+  /* margin: auto; */
   margin-top: 50px;
   display: block;
   font-size: 22px;
@@ -101,6 +101,16 @@
 {
   font-size: 32px;
   color: var(--green-clr);
+}
+.add-list-container .wishlist-btn
+{
+  background-color: transparent;
+}
+.add-list-container i
+{
+  font-size: 40px;
+  color: var(--green-clr);
+  background-color: transparent;
 }
 @media screen and (max-width: 1300px) {
   .detail-container {

@@ -6,7 +6,7 @@ const Panel = ({ show, message }) => {
       {show && (
         <section className="panel-section">
           <div className="panel-content">
-            <p>{message} <i className="fa-solid fa-cart-plus"></i></p>
+            <p>{message}</p>
           </div>
         </section>
       )}

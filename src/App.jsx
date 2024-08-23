@@ -12,10 +12,11 @@ import { useEffect } from "react";
 import Cart from "./components/cart/Cart";
 import CheckOut from "./components/checkout/CheckOut";
 import Loader from "./components/loader/Loader";
+import WishList from "./components/wishlist/WishList";
 function App() {
   const location = useLocation();
   const [cartItems, setCartItems] = useState([]);
-
+  const [wishlist, setWishlist] = useState([]);
   useEffect(() => {
     switch (location.pathname) {
       case "/":
@@ -85,6 +86,7 @@ function App() {
         totalPrice={totalPrice}
         handleClearCart={handleClearCart}
       />
+      <WishList wishlist={wishlist} />
       <Loader />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -96,7 +98,7 @@ function App() {
         />
         <Route
           path="/product/:id"
-          element={<ProductDetail onAddToCart={handleAddToCart} />}
+          element={<ProductDetail onAddToCart={handleAddToCart} onAddToWishList={(item) => setWishlist([...wishlist, item])} />}
         />
         <Route
           path="/checkout"
