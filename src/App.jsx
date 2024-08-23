@@ -98,7 +98,12 @@ function App() {
         />
         <Route
           path="/product/:id"
-          element={<ProductDetail onAddToCart={handleAddToCart} onAddToWishList={(item) => setWishlist([...wishlist, item])} />}
+          element={
+            <ProductDetail
+              onAddToCart={handleAddToCart}
+              onAddToWishList={(item) => setWishlist([...wishlist, item])}
+            />
+          }
         />
         <Route
           path="/checkout"

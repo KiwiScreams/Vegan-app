@@ -3,7 +3,7 @@ import "./Cart.css";
 import { useState, useEffect } from "react";
 import Panel from "../panel/Panel";
 import { Navigate, useNavigate } from "react-router-dom";
-const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice, handleClearCart }) => {
+const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
   const [isCartVisible, setIsCartVisible] = useState(false);
   const handleToggleCart = () => {
     setIsCartVisible(!isCartVisible);
@@ -32,6 +32,11 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice, handleCle
   const handleCancelDelete = () => {
     setIsConfirmDeleteVisible(false);
     setItemToDelete(null);
+  };
+  const handleClearCart = () => {
+    cartItems.forEach((item) => {
+      onRemoveItem(item);
+    });
   };
   useEffect(() => {
     if (isConfirmDeleteVisible) {

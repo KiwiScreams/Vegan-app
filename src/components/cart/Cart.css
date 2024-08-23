@@ -15,16 +15,19 @@
   font-size: 32px;
   margin-bottom: 20px;
 }
-.cart-section .cart-image {
+.cart-section .cart-image,
+.wishlist .wish-image {
   width: 70px;
   height: 70px;
 }
-.cart-section ul {
+.cart-section ul,
+.wishlist ul {
   height: 80vh;
   overflow-y: scroll;
   padding-right: 16px;
 }
-.cart-section li {
+.cart-section li,
+.wishlist li {
   border-bottom: 1px solid var(--grey-clr);
   padding: 10px;
   display: flex;
@@ -32,19 +35,22 @@
   justify-content: space-between;
   gap: 20px;
 }
-.cart-section .cart-image img {
+.cart-section .cart-image img,
+.wishlist .wish-image img {
   width: 100%;
 }
 .cart-section span.title {
   font-size: 22px;
 }
-.cart-section .delete-btn {
+.cart-section .delete-btn,
+.wishlist .delete-btn {
   background-color: transparent;
   border: 3px solid var(--white-clr);
   padding: 10px;
   border-radius: 50%;
 }
-.cart-section .delete-btn i {
+.cart-section .delete-btn i,
+.wishlist .delete-btn i {
   font-size: 18px;
   color: var(--white-clr);
 }
@@ -66,7 +72,8 @@
   color: var(--green-clr);
   background-color: var(--white-clr);
 }
-.cart-section .delete-btn:hover i {
+.cart-section .delete-btn:hover i,
+.wishlist .delete-btn:hover i {
   color: var(--green-clr);
 }
 .cart-section .buttons {
