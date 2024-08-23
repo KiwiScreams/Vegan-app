@@ -10,6 +10,7 @@ const CheckOut = () => {
     cardFullname: "",
     cardNumber: "",
   });
+  const navigate = useNavigate();
   const handleCheckout = (e) => {
     e.preventDefault();
     const isValid = validateForm();
@@ -18,10 +19,10 @@ const CheckOut = () => {
       window.location.reload();
     }
   };
-  const doubleClick = () =>
-  {
+  const doubleClick = () => {
+    navigate("/");
     window.location.reload();
-  }
+  };
   const validateForm = () => {
     const errors = {};
     if (!formValues.fullname) {
@@ -53,10 +54,19 @@ const CheckOut = () => {
     const { name, value } = e.target;
     setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
   };
+  const handleCloseCheckout = () =>
+  {
+    navigate("/products");
+  }
   return (
     <>
       <div className="darkk-screen">
         <section className="checkout-section">
+          <div className="change" onClick={handleCloseCheckout}>
+            <div className="bar1"></div>
+            <div className="bar2"></div>
+            <div className="bar3"></div>
+          </div>
           <h2>
             <span className="first-letter">ბ</span>არათის დამატება
           </h2>
