@@ -69,6 +69,11 @@ function App() {
       })
     );
   };
+  const handleClearCart = () => {
+    cartItems.forEach((item) => {
+      handleRemoveItem(item);
+    });
+  };
   return (
     <>
       <Header />
@@ -77,6 +82,7 @@ function App() {
         onQuantityChange={handleQuantityChange}
         onRemoveItem={handleRemoveItem}
         totalPrice={totalPrice}
+        handleClearCart={handleClearCart}
       />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -90,7 +96,7 @@ function App() {
           path="/product/:id"
           element={<ProductDetail onAddToCart={handleAddToCart} />}
         />
-        <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/checkout" element={<CheckOut handleClearCart={handleClearCart}/>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>

@@ -1,7 +1,7 @@
 import "./CheckOut.css";
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-const CheckOut = () => {
+const CheckOut = ({ handleClearCart }) => {
   const [errors, setErrors] = useState({});
   const [formValues, setFormValues] = useState({
     fullname: "",
@@ -11,13 +11,17 @@ const CheckOut = () => {
     cardNumber: "",
   });
   const navigate = useNavigate();
-
+  const [showThanks, setShowThanks] = useState(false);
   const handleCheckout = (e) => {
     e.preventDefault();
     const isValid = validateForm();
     if (isValid) {
-      navigate("/");
-      // window.location.reload();
+      setShowThanks(true);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+
+      handleClearCart();
     }
   };
 
@@ -177,6 +181,16 @@ const CheckOut = () => {
           </form>
         </section>
       </div>
+      {showThanks && (
+        <div className="darkk-screen">
+          <section className="thanks-section">
+            <div className="panel-content">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2>მადლობა შეძენისთვის</h2>
+            </div>
+          </section>
+        </div>
+      )}
     </>
   );
 };
