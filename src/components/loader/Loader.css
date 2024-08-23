@@ -1,0 +1,34 @@
+.loader
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--green-clr);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 3.1s loaderAnim linear;
+}
+@keyframes loaderAnim
+{
+    0%
+    {
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+.loader h1
+{
+    font-size: 10vw;
+    color: var(--white-clr);
+}
