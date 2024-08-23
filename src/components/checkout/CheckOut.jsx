@@ -11,12 +11,16 @@ const CheckOut = ({ handleClearCart }) => {
     cardNumber: "",
   });
   const navigate = useNavigate();
-
+  const [showThanks, setShowThanks] = useState(false);
   const handleCheckout = (e) => {
     e.preventDefault();
     const isValid = validateForm();
     if (isValid) {
-      navigate("/");
+      setShowThanks(true);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+      
       handleClearCart();
     }
   };
@@ -177,7 +181,13 @@ const CheckOut = ({ handleClearCart }) => {
           </form>
         </section>
       </div>
-
+      {showThanks && (
+        <section className="thanks-section">
+          <div className="panel-content">
+            <p>მადლობა</p>
+          </div>
+        </section>
+      )}
     </>
   );
 };
