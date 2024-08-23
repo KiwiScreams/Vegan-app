@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Cart from "./components/cart/Cart";
 import CheckOut from "./components/checkout/CheckOut";
+import Loader from "./components/loader/Loader";
 function App() {
   const location = useLocation();
   const [cartItems, setCartItems] = useState([]);
@@ -84,6 +85,7 @@ function App() {
         totalPrice={totalPrice}
         handleClearCart={handleClearCart}
       />
+      <Loader />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/stores" element={<Stores />} />
@@ -96,7 +98,10 @@ function App() {
           path="/product/:id"
           element={<ProductDetail onAddToCart={handleAddToCart} />}
         />
-        <Route path="/checkout" element={<CheckOut handleClearCart={handleClearCart}/>} />
+        <Route
+          path="/checkout"
+          element={<CheckOut handleClearCart={handleClearCart} />}
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
