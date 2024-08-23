@@ -1,13 +1,23 @@
 import "./WishList.css";
+import { useState, useEffect } from "react";
 const WishList = ({ wishlist }) => {
+  const [isWishlistVisible, setIsWishlistVisible] = useState(false);
+  const [addedProducts, setAddedProducts] = useState([]); // new state variable
+
+  const handleWishBtnClick = (product) => {
+    if (!addedProducts.includes(product)) {
+      setAddedProducts([...addedProducts, product]);
+    }
+    setIsWishlistVisible(true);
+  };
   return (
     <>
       <section className="wishlist-section">
-        <div className="wishlist">
-          <h2>My Wishlist</h2>
-          <ul>
-            {wishlist &&
-              wishlist.map((product, index) => (
+        {isWishlistVisible && (
+          <div className="wishlist">
+            <h2>My Wishlist</h2>
+            <ul>
+              {addedProducts.map((product, index) => (
                 <li key={index}>
                   <img src={product.image} alt="" />
                   <div>
@@ -19,11 +29,18 @@ const WishList = ({ wishlist }) => {
                   </div>
                 </li>
               ))}
-          </ul>
-        </div>
-        <button className="wish-btn">
-          <i className="fa-regular fa-heart"></i>
-        </button>
+            </ul>
+          </div>
+        )}
+        {wishlist.map((product, index) => (
+          <button
+            key={index}
+            className="wish-btn"
+            onClick={() => handleWishBtnClick(product)}
+          >
+            <i className="fa-regular fa-heart"></i>
+          </button>
+        ))}
       </section>
     </>
   );

@@ -30,7 +30,7 @@ const ProductDetail = ({ onAddToCart, onAddToWishList }) => {
   };
   const handleAddToWishList = (item) => {
     onAddToWishList(item);
-    setCartMessage(`თქვენ დაამატეთ ${item.title} Wish List-ში`);
+    setCardMessage(`თქვენ დაამატეთ ${item.title} Wish List-ში`);
     setShowPanel(true);
     setTimeout(() => {
       setShowPanel(false);

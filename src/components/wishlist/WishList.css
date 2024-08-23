@@ -1,5 +1,9 @@
-.wishlist-section {
-
+.wishlist {
+    background-color: var(--dark-clr);
+    position: absolute;right: 0;
+    top: 0;
+    bottom: 0;
+    color: var(--white-clr);
 }
 .wishlist-section .wish-btn {
   border-radius: 35px 0 0 50%;
