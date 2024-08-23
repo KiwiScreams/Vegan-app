@@ -1,7 +1,7 @@
 import "./CheckOut.css";
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-const CheckOut = () => {
+const CheckOut = ({ handleClearCart }) => {
   const [errors, setErrors] = useState({});
   const [formValues, setFormValues] = useState({
     fullname: "",
@@ -17,7 +17,7 @@ const CheckOut = () => {
     const isValid = validateForm();
     if (isValid) {
       navigate("/");
-      // window.location.reload();
+      handleClearCart();
     }
   };
 
@@ -177,6 +177,7 @@ const CheckOut = () => {
           </form>
         </section>
       </div>
+
     </>
   );
 };
