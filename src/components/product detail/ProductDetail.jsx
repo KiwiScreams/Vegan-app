@@ -5,12 +5,13 @@ import { useState, useEffect } from "react";
 import RelatedList from "../related list/RelatedList";
 import Cart from "../cart/Cart";
 import Panel from "../panel/Panel";
-const ProductDetail = ({ onAddToCart }) => {
+import WishList from "../wishlist/WishList";
+const ProductDetail = ({ onAddToCart, onAddToWishList }) => {
   const { id } = useParams();
   const productId = parseInt(id, 10);
   const product = products.find((product) => product.id === productId);
   const [showPanel, setShowPanel] = useState(false);
-  const [cartMessage, setCartMessage] = useState("");
+  const [cardMessage, setCardMessage] = useState("");
   const relatedProducts = products
     .filter((relatedProduct) => {
       if (relatedProduct.id === productId) return false;
@@ -21,7 +22,15 @@ const ProductDetail = ({ onAddToCart }) => {
     .filter((relatedProduct) => relatedProduct.category.length > 0);
   const handleAddToCart = (item) => {
     onAddToCart(item);
-    setCartMessage(`თქვენ დაამატეთ ${item.title} თქვენს კალათაში`);
+    setCardMessage(`თქვენ დაამატეთ ${item.title} თქვენს კალათაში`);
+    setShowPanel(true);
+    setTimeout(() => {
+      setShowPanel(false);
+    }, 3000);
+  };
+  const handleAddToWishList = (item) => {
+    onAddToWishList(item);
+    setCardMessage(`თქვენ დაამატეთ ${item.title} Wish List-ში`);
     setShowPanel(true);
     setTimeout(() => {
       setShowPanel(false);
@@ -84,17 +93,26 @@ const ProductDetail = ({ onAddToCart }) => {
               <></>
             )}
             <p className="description">{product.description}</p>
-            <button
-              onClick={() => handleAddToCart(product)}
-              className="add-to-cart"
-            >
-              კალათაში დამატება
-            </button>
+            <div className="flex add-list-container">
+              <button
+                onClick={() => handleAddToCart(product)}
+                className="add-to-cart"
+              >
+                კალათაში დამატება
+              </button>
+
+              <button
+                onClick={() => handleAddToWishList(product)}
+                className="wishlist-btn"
+              >
+                <i className="fa-regular fa-heart"></i>
+              </button>
+            </div>
           </div>
         </div>
       </section>
       <RelatedList relatedProducts={relatedProducts} />
-      <Panel show={showPanel} message={cartMessage} />
+      <Panel show={showPanel} message={cardMessage} />
     </>
   );
 };
