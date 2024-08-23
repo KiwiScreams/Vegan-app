@@ -20,7 +20,7 @@ const CheckOut = ({ handleClearCart }) => {
       setTimeout(() => {
         navigate("/");
       }, 3000);
-      
+
       handleClearCart();
     }
   };
@@ -182,11 +182,14 @@ const CheckOut = ({ handleClearCart }) => {
         </section>
       </div>
       {showThanks && (
-        <section className="thanks-section">
-          <div className="panel-content">
-            <p>მადლობა</p>
-          </div>
-        </section>
+        <div className="darkk-screen">
+          <section className="thanks-section">
+            <div className="panel-content">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2>მადლობა შეძენისთვის</h2>
+            </div>
+          </section>
+        </div>
       )}
     </>
   );
