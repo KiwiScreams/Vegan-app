@@ -42,7 +42,7 @@ const CheckOut = () => {
     if (!formValues.cardNumber) {
       errors.cardNumber = "ბარათის ნომერი აუცილებელია";
     } else if (!/^\d{16}$/.test(formValues.cardNumber)) {
-      errors.cardNumber = "გთხოვთ შეიყვანოთ სწორი ბარათის ნომერი";
+      errors.cardNumber = "გთხოვთ შეიყვანოთ 16 ციფრიანი ბარათის ნომერი";
     }
     setErrors(errors);
     return Object.keys(errors).length === 0;
@@ -50,7 +50,9 @@ const CheckOut = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
+    const trimmedValue = value.substring(0, 16);
+    setFormValues((prevValues) => ({ ...prevValues, [name]: trimmedValue }));
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
 
   const handleCloseCheckout = () => {
@@ -80,14 +82,12 @@ const CheckOut = () => {
                     type="text"
                     name="fullname"
                     id="fullname"
+                    value={formValues.fullname}
+                    onChange={handleInputChange}
                     placeholder="შეიყვანეთ თქვენი სახელი და გვარი"
                   />
                   {errors.fullname && (
-                    <div
-                      className="input-error-message"
-                    >
-                      {errors.fullname}
-                    </div>
+                    <div className="input-error-message">{errors.fullname}</div>
                   )}
                 </div>
                 <div className="input-container">
@@ -99,14 +99,12 @@ const CheckOut = () => {
                     type="email"
                     name="email"
                     id="email"
+                    value={formValues.email}
+                    onChange={handleInputChange}
                     placeholder="john@gmail.com"
                   />
                   {errors.email && (
-                    <div
-                      className="input-error-message"
-                    >
-                      {errors.email}
-                    </div>
+                    <div className="input-error-message">{errors.email}</div>
                   )}
                 </div>
                 <div className="input-container">
@@ -118,14 +116,12 @@ const CheckOut = () => {
                     type="text"
                     name="address"
                     id="address"
+                    value={formValues.address}
+                    onChange={handleInputChange}
                     placeholder="შეიყვანეთ თქვენი მისამართი"
                   />
                   {errors.address && (
-                    <div
-                      className="input-error-message"
-                    >
-                      {errors.address}
-                    </div>
+                    <div className="input-error-message">{errors.address}</div>
                   )}
                 </div>
               </div>
@@ -137,36 +133,36 @@ const CheckOut = () => {
                 </div>
                 <div className="input-container">
                   <div className="label-container">
-                    <label htmlFor="card-fullname">ბარათის დასახელება</label>
+                    <label htmlFor="cardFullname">ბარათის დასახელება</label>
                   </div>
                   <input
                     type="text"
-                    name="card-fullname"
-                    id="card-fullname"
+                    name="cardFullname"
+                    id="cardFullname"
+                    value={formValues.cardFullname}
+                    onChange={handleInputChange}
                     placeholder="შეიყვანეთ ბარათის დასახელება"
                   />
                   {errors.cardFullname && (
-                    <div
-                      className="input-error-message"
-                    >
+                    <div className="input-error-message">
                       {errors.cardFullname}
                     </div>
                   )}
                 </div>
                 <div className="input-container">
                   <div className="label-container">
-                    <label htmlFor="card-number">ბარათის ნომერი</label>
+                    <label htmlFor="cardNumber">ბარათის ნომერი</label>
                   </div>
                   <input
                     type="number"
-                    name="card-number"
-                    id="card-number"
+                    name="cardNumber"
+                    id="cardNumber"
+                    value={formValues.cardNumber}
+                    onChange={handleInputChange}
                     placeholder="შეიყვანეთ ბარათის ნომერი"
                   />
                   {errors.cardNumber && (
-                    <div
-                      className="input-error-message"
-                    >
+                    <div className="input-error-message">
                       {errors.cardNumber}
                     </div>
                   )}
