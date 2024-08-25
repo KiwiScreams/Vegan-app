@@ -1,8 +1,8 @@
 .wishlist {
   background-color: var(--dark-clr);
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 0px;
+  top: 0px;
   bottom: 0;
   color: var(--white-clr);
   padding: 30px 20px;
@@ -17,7 +17,17 @@
   border-radius: 35px 0 0 50%;
   top: 80px;
 }
-.wishlist .wish-item {
+.wishlist .wish-item .flex {
+  gap: 20px;
+}
+.wishlist .delete-btn
+{
+  border: none;
+}
+.wishlist .delete-btn:hover i
+{
+  color: var(--white-clr);
+  font-size: 30px;
 }
 @keyframes slideOut {
     0% {
