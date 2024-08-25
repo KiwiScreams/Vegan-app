@@ -9,7 +9,7 @@
   color: var(--white-clr);
   box-shadow: 0 0 20px var(--black-clr);
   z-index: 20;
-  width: 800px;
+  width: 500px;
   background-color: var(--green-clr);
   animation: slideOut 0.5s forwards;
 }
@@ -23,11 +23,11 @@
 .wishlist .delete-btn
 {
   border: none;
+  font-size: 30px;
 }
 .wishlist .delete-btn:hover i
 {
   color: var(--white-clr);
-  font-size: 30px;
 }
 @keyframes slideOut {
     0% {
