@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./ProductList.css";
 import Cart from "../cart/Cart";
 import Panel from "../panel/Panel";
+import Loader from "../loader/Loader";
 
 const ProductList = ({ onAddToCart }) => {
   const updatedProducts = products.map((product) => ({
@@ -16,6 +17,7 @@ const ProductList = ({ onAddToCart }) => {
   const [showPanel, setShowPanel] = useState(false);
   const [cartMessage, setCartMessage] = useState("");
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filteredItems, setFilteredItems] = useState(updatedProducts);
   let filters = [
     { category: "Bio", label: "ბიო საკვები" },
@@ -41,6 +43,12 @@ const ProductList = ({ onAddToCart }) => {
   useEffect(() => {
     filterItems();
   }, [selectedFilters]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleAddToCart = (item) => {
     onAddToCart(item);
@@ -70,63 +78,67 @@ const ProductList = ({ onAddToCart }) => {
   };
   return (
     <>
-      <section className="product-list-section">
-        <section className="products-section">
-          <div className="hidden-cube"></div>
-          {filteredItems.length > 0 ? (
-            filteredItems.map((item, idx) => (
-              <div key={`blogs-${idx}`} className="product">
-                <div className="plus" onClick={() => handleAddToCart(item)}>
-                  <img src={plusIcon} alt="" />
-                </div>
-                <div className="product-image-container">
-                  <img src={item.image} alt="" />
-                </div>
-                <div className="product-body">
-                  <p className="price">
-                    {item.discount ? (
-                      <>
-                        {getDiscountedPrice(item).toFixed(2)}
-                        <i className="fa-solid fa-lari-sign"></i>
-                        <span>
+      {loading ? (
+        <Loader />
+      ) : (
+        <section className="product-list-section">
+          <section className="products-section">
+            <div className="hidden-cube"></div>
+            {filteredItems.length > 0 ? (
+              filteredItems.map((item, idx) => (
+                <div key={`blogs-${idx}`} className="product">
+                  <div className="plus" onClick={() => handleAddToCart(item)}>
+                    <img src={plusIcon} alt="" />
+                  </div>
+                  <div className="product-image-container">
+                    <img src={item.image} alt="" />
+                  </div>
+                  <div className="product-body">
+                    <p className="price">
+                      {item.discount ? (
+                        <>
+                          {getDiscountedPrice(item).toFixed(2)}
+                          <i className="fa-solid fa-lari-sign"></i>
+                          <span>
+                            {item.price.toFixed(2)}
+                            <i className="fa-solid fa-lari-sign"></i>
+                          </span>
+                        </>
+                      ) : (
+                        <>
                           {item.price.toFixed(2)}
                           <i className="fa-solid fa-lari-sign"></i>
-                        </span>
-                      </>
-                    ) : (
-                      <>
-                        {item.price.toFixed(2)}
-                        <i className="fa-solid fa-lari-sign"></i>
-                      </>
-                    )}
-                  </p>
-                  <p className="title">{item.title}</p>
-                  <Link to={`/product/${item.id}`} className="detail-btn">
-                    ვრცლად
-                  </Link>
+                        </>
+                      )}
+                    </p>
+                    <p className="title">{item.title}</p>
+                    <Link to={`/product/${item.id}`} className="detail-btn">
+                      ვრცლად
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            <p className="no-category">ასეთი პროდუქტი არ არსებობს</p>
-          )}
+              ))
+            ) : (
+              <p className="no-category">ასეთი პროდუქტი არ არსებობს</p>
+            )}
+          </section>
+          <ul className="multi-filter-section">
+            {filters.map((filter, idx) => (
+              <li
+                onClick={() => handleFilterButtonClick(filter.category)}
+                className={`button ${
+                  selectedFilters?.includes(filter.category)
+                    ? "active-filter"
+                    : ""
+                }`}
+                key={`filters-${idx}`}
+              >
+                {filter.label}
+              </li>
+            ))}
+          </ul>
         </section>
-        <ul className="multi-filter-section">
-          {filters.map((filter, idx) => (
-            <li
-              onClick={() => handleFilterButtonClick(filter.category)}
-              className={`button ${
-                selectedFilters?.includes(filter.category)
-                  ? "active-filter"
-                  : ""
-              }`}
-              key={`filters-${idx}`}
-            >
-              {filter.label}
-            </li>
-          ))}
-        </ul>
-      </section>
+      )}
       <Panel show={showPanel} message={cartMessage} />
     </>
   );
