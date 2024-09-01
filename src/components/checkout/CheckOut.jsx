@@ -1,8 +1,11 @@
 import "./CheckOut.css";
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import Loader from "../loader/Loader";
 const CheckOut = ({ handleClearCart }) => {
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(true);
+
   const [formValues, setFormValues] = useState({
     fullname: "",
     email: "",
@@ -24,7 +27,12 @@ const CheckOut = ({ handleClearCart }) => {
       handleClearCart();
     }
   };
-
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
   const validateForm = () => {
     const errors = {};
     if (!formValues.fullname) {
@@ -68,125 +76,133 @@ const CheckOut = ({ handleClearCart }) => {
   };
   return (
     <>
-      <div className="darkk-screen">
-        <section className="checkout-section">
-          <div className="change" onClick={handleCloseCheckout}>
-            <div className="bar1"></div>
-            <div className="bar2"></div>
-            <div className="bar3"></div>
-          </div>
-          <form onSubmit={handleCheckout}>
-            <h2>
-              <span className="first-letter">ბ</span>არათის დამატება
-            </h2>
-            <div className="checkout-container">
-              <div className="container user-info-container">
-                <div className="input-container">
-                  <div className="label-container">
-                    <i className="fa-solid fa-user"></i>
-                    <label htmlFor="fullname">სახელი | გვარი</label>
-                  </div>
-                  <input
-                    type="text"
-                    name="fullname"
-                    id="fullname"
-                    value={formValues.fullname}
-                    onChange={handleInputChange}
-                    placeholder="შეიყვანეთ თქვენი სახელი და გვარი"
-                  />
-                  {errors.fullname && (
-                    <div className="input-error-message">{errors.fullname}</div>
-                  )}
-                </div>
-                <div className="input-container">
-                  <div className="label-container">
-                    <i className="fa-solid fa-envelope"></i>
-                    <label htmlFor="email">Email</label>
-                  </div>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={formValues.email}
-                    onChange={handleInputChange}
-                    placeholder="john@gmail.com"
-                  />
-                  {errors.email && (
-                    <div className="input-error-message">{errors.email}</div>
-                  )}
-                </div>
-                <div className="input-container">
-                  <div className="label-container">
-                    <i className="fa-regular fa-address-card"></i>
-                    <label htmlFor="address">მისამართი</label>
-                  </div>
-                  <input
-                    type="text"
-                    name="address"
-                    id="address"
-                    value={formValues.address}
-                    onChange={handleInputChange}
-                    placeholder="შეიყვანეთ თქვენი მისამართი"
-                  />
-                  {errors.address && (
-                    <div className="input-error-message">{errors.address}</div>
-                  )}
-                </div>
-              </div>
-              <div className="container payment-container">
-                <div className="cards-container flex">
-                  <i className="fa-brands fa-cc-visa"></i>
-                  <i className="fa-brands fa-cc-paypal"></i>
-                  <i className="fa-brands fa-cc-discover"></i>
-                </div>
-                <div className="input-container">
-                  <div className="label-container">
-                    <label htmlFor="cardFullname">ბარათის დასახელება</label>
-                  </div>
-                  <input
-                    type="text"
-                    name="cardFullname"
-                    id="cardFullname"
-                    value={formValues.cardFullname}
-                    onChange={handleInputChange}
-                    placeholder="შეიყვანეთ ბარათის დასახელება"
-                  />
-                  {errors.cardFullname && (
-                    <div className="input-error-message">
-                      {errors.cardFullname}
-                    </div>
-                  )}
-                </div>
-                <div className="input-container">
-                  <div className="label-container">
-                    <label htmlFor="cardNumber">ბარათის ნომერი</label>
-                  </div>
-                  <input
-                    type="number"
-                    name="cardNumber"
-                    id="cardNumber"
-                    value={formValues.cardNumber}
-                    onChange={handleInputChange}
-                    placeholder="შეიყვანეთ ბარათის ნომერი"
-                  />
-                  {errors.cardNumber && (
-                    <div className="input-error-message">
-                      {errors.cardNumber}
-                    </div>
-                  )}
-                </div>
-              </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="darkk-screen">
+          <section className="checkout-section">
+            <div className="change" onClick={handleCloseCheckout}>
+              <div className="bar1"></div>
+              <div className="bar2"></div>
+              <div className="bar3"></div>
             </div>
-            <button>OK</button>
-          </form>
-        </section>
-      </div>
+            <form onSubmit={handleCheckout}>
+              <h2>
+                <span className="first-letter">ბ</span>არათის დამატება
+              </h2>
+              <div className="checkout-container">
+                <div className="container user-info-container">
+                  <div className="input-container">
+                    <div className="label-container">
+                      <i className="fa-solid fa-user"></i>
+                      <label htmlFor="fullname">სახელი | გვარი</label>
+                    </div>
+                    <input
+                      type="text"
+                      name="fullname"
+                      id="fullname"
+                      value={formValues.fullname}
+                      onChange={handleInputChange}
+                      placeholder="შეიყვანეთ თქვენი სახელი და გვარი"
+                    />
+                    {errors.fullname && (
+                      <div className="input-error-message">
+                        {errors.fullname}
+                      </div>
+                    )}
+                  </div>
+                  <div className="input-container">
+                    <div className="label-container">
+                      <i className="fa-solid fa-envelope"></i>
+                      <label htmlFor="email">Email</label>
+                    </div>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      value={formValues.email}
+                      onChange={handleInputChange}
+                      placeholder="john@gmail.com"
+                    />
+                    {errors.email && (
+                      <div className="input-error-message">{errors.email}</div>
+                    )}
+                  </div>
+                  <div className="input-container">
+                    <div className="label-container">
+                      <i className="fa-regular fa-address-card"></i>
+                      <label htmlFor="address">მისამართი</label>
+                    </div>
+                    <input
+                      type="text"
+                      name="address"
+                      id="address"
+                      value={formValues.address}
+                      onChange={handleInputChange}
+                      placeholder="შეიყვანეთ თქვენი მისამართი"
+                    />
+                    {errors.address && (
+                      <div className="input-error-message">
+                        {errors.address}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="container payment-container">
+                  <div className="cards-container flex">
+                    <i className="fa-brands fa-cc-visa"></i>
+                    <i className="fa-brands fa-cc-paypal"></i>
+                    <i className="fa-brands fa-cc-discover"></i>
+                  </div>
+                  <div className="input-container">
+                    <div className="label-container">
+                      <label htmlFor="cardFullname">ბარათის დასახელება</label>
+                    </div>
+                    <input
+                      type="text"
+                      name="cardFullname"
+                      id="cardFullname"
+                      value={formValues.cardFullname}
+                      onChange={handleInputChange}
+                      placeholder="შეიყვანეთ ბარათის დასახელება"
+                    />
+                    {errors.cardFullname && (
+                      <div className="input-error-message">
+                        {errors.cardFullname}
+                      </div>
+                    )}
+                  </div>
+                  <div className="input-container">
+                    <div className="label-container">
+                      <label htmlFor="cardNumber">ბარათის ნომერი</label>
+                    </div>
+                    <input
+                      type="number"
+                      name="cardNumber"
+                      id="cardNumber"
+                      value={formValues.cardNumber}
+                      onChange={handleInputChange}
+                      placeholder="შეიყვანეთ ბარათის ნომერი"
+                    />
+                    {errors.cardNumber && (
+                      <div className="input-error-message">
+                        {errors.cardNumber}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <button>OK</button>
+            </form>
+          </section>
+        </div>
+      )}
       {showThanks && (
         <div className="darkk-screen">
           <section className="thanks-section">
             <div className="panel-content">
-                <i className="fa-solid fa-circle-check"></i>
-                <h2>მადლობა შეძენისთვის</h2>
+              <i className="fa-solid fa-circle-check"></i>
+              <h2>მადლობა შეძენისთვის</h2>
             </div>
           </section>
         </div>
