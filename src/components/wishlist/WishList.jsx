@@ -1,10 +1,10 @@
 import "./WishList.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 const WishList = ({ wishlist }) => {
   const [isWishlistVisible, setIsWishlistVisible] = useState(false);
   const [addedProducts, setAddedProducts] = useState([]);
-  const [isHovered, setIsHovered] = useState(false);
   const [hoveredItems, setHoveredItems] = useState({});
 
   const handleMouseOver = (index) => {
@@ -20,13 +20,17 @@ const WishList = ({ wishlist }) => {
       [index]: false,
     }));
   };
+
   const navigate = useNavigate();
+
   const handleWishBtnClick = (product) => {
-    setAddedProducts([...addedProducts, product]);
+    setAddedProducts((prevAddedProducts) => [...prevAddedProducts, product]);
   };
 
   const handleDeleteProduct = (product) => {
-    setAddedProducts(addedProducts.filter((item) => item !== product));
+    setAddedProducts((prevAddedProducts) =>
+      prevAddedProducts.filter((item) => item.id !== product.id)
+    );
   };
 
   const toggleWishlist = () => {
@@ -39,6 +43,7 @@ const WishList = ({ wishlist }) => {
       });
     }
   };
+
   useEffect(() => {
     if (isWishlistVisible) {
       document.body.classList.add("no-scroll");
@@ -46,14 +51,16 @@ const WishList = ({ wishlist }) => {
       document.body.classList.remove("no-scroll");
     }
   }, [isWishlistVisible]);
+
   const navigateToProductDetailPage = (product) => {
     const productId = product.id;
     navigate(`/product/${productId}`);
   };
+
   return (
     <>
       <section className="wishlist-section">
-        <button className="wish-btn" onClick={() => toggleWishlist()}>
+        <button className="wish-btn" onClick={toggleWishlist}>
           <i className="fa-regular fa-heart"></i>
         </button>
         {isWishlistVisible && (
