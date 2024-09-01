@@ -18,22 +18,50 @@
 .wishlist .wish-item .flex {
   gap: 20px;
 }
-.wishlist .delete-btn
-{
+.wishlist .delete-btn {
   border: none;
   font-size: 30px;
 }
-.wishlist .delete-btn:hover i
-{
+.wishlist .delete-btn:hover i {
   color: var(--white-clr);
 }
 @keyframes slideOut {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
   }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wishlist-section .wish-btn {
+    padding: 10px;
+    top: 0px;
+    left: 85px;
+    z-index: 22;
+    font-size: 16px;
+    border-radius: 0 0px 35px 35px;
+  }
+  .wishlist-section .wish-btn:hover {
+    transform: scale(1);
+  }
+  .wishlist-section h2 {
+    margin-top: 80px;
+  }
+  .wishlist {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    padding: 30px 20px;
+    color: var(--white-clr);
+    box-shadow: 0 0 20px var(--black-clr);
+    z-index: 20;
+    width: 100%;
+    background-color: var(--green-clr);
+    animation: slideOut 0.5s forwards;
+  }
+}
