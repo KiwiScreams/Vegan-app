@@ -7,18 +7,6 @@ const WishList = ({ wishlist }) => {
   const [isWishlistVisible, setIsWishlistVisible] = useState(false);
   const [addedProducts, setAddedProducts] = useState([]);
   const [hoveredItems, setHoveredItems] = useState({});
-  const handleMouseOver = (index) => {
-    setHoveredItems((prevHoveredItems) => ({
-      ...prevHoveredItems,
-      [index]: true,
-    }));
-  };
-  const handleMouseOut = (index) => {
-    setHoveredItems((prevHoveredItems) => ({
-      ...prevHoveredItems,
-      [index]: false,
-    }));
-  };
 
   const navigate = useNavigate();
 
@@ -72,17 +60,9 @@ const WishList = ({ wishlist }) => {
                   <h3>{product.title}</h3>
                   <button
                     className="delete-btn"
-                    onMouseOver={() => handleMouseOver(index)}
-                    onMouseOut={() => handleMouseOut(index)}
                     onClick={() => handleDeleteProduct(product)}
                   >
-                    <i
-                      className={
-                        hoveredItems[index]
-                          ? "fa-regular fa-heart"
-                          : "fa-solid fa-heart"
-                      }
-                    ></i>
+                    <i className="fa-solid fa-heart"></i>
                   </button>
                 </li>
               ))}

@@ -14,6 +14,7 @@ const ProductDetail = ({ onAddToCart, onAddToWishList }) => {
   const [showPanel, setShowPanel] = useState(false);
   const [cardMessage, setCardMessage] = useState("");
   const [loading, setLoading] = useState(true);
+  const [isHeartHovered, setIsHeartHovered] = useState(false);
 
   const relatedProducts = products
     .filter((relatedProduct) => {
@@ -53,6 +54,13 @@ const ProductDetail = ({ onAddToCart, onAddToWishList }) => {
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
+  const handleHeartMouseOver = () => {
+    setIsHeartHovered(true);
+  };
+
+  const handleHeartMouseOut = () => {
+    setIsHeartHovered(false);
+  };
   return (
     <>
       {loading ? (
@@ -117,8 +125,14 @@ const ProductDetail = ({ onAddToCart, onAddToWishList }) => {
                 <button
                   onClick={() => handleAddToWishList(product)}
                   className="wishlist-btn"
+                  onMouseOver={handleHeartMouseOver}
+                  onMouseOut={handleHeartMouseOut}
                 >
-                  <i className="fa-regular fa-heart"></i>
+                  <i
+                    className={`fa-${
+                      isHeartHovered ? "solid" : "regular"
+                    } fa-heart`}
+                  ></i>
                 </button>
               </div>
             </div>
