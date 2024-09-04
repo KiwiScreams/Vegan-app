@@ -39,12 +39,20 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
     });
   };
   useEffect(() => {
-    if (isConfirmDeleteVisible || isCartVisible) {
+    if (isConfirmDeleteVisible) {
       document.body.classList.add("no-scroll");
     } else {
       document.body.classList.remove("no-scroll");
     }
-  }, [isConfirmDeleteVisible, isCartVisible]);
+  }, [isConfirmDeleteVisible]);
+
+  useEffect(() => {
+    if (isCartVisible) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isCartVisible]);
   const handleCheckOut = () => {
     console.log("check out");
     navigate("/checkout");
