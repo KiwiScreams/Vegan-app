@@ -38,21 +38,6 @@ const Cart = ({ cartItems, onQuantityChange, onRemoveItem, totalPrice }) => {
       onRemoveItem(item);
     });
   };
-  useEffect(() => {
-    if (isConfirmDeleteVisible) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
-  }, [isConfirmDeleteVisible]);
-
-  useEffect(() => {
-    if (isCartVisible) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
-  }, [isCartVisible]);
   const handleCheckOut = () => {
     console.log("check out");
     navigate("/checkout");
